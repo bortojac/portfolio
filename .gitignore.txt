@@ -1,0 +1,6 @@
+
+# ignore img folder
+img
+
+# ignore .jpg
+*.jpg

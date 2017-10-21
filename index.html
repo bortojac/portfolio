@@ -11,13 +11,16 @@
 
 <body>
     <div class="container">
-        <i id="toggleIcon" class="fa fa-bars"></i>
+        <i id="toggleIcon" class="fa fa-bars" onclick="toggleMenu()" ></i>
         <aside id="sidebar">
-            <a href="">Insert image here</a>
-            <a href="">Insert image here</a>
-            <a href="">Insert image here</a>
+            <!-- check semantics of having nav inside aside -->
+            <nav>
+                <a href="">link1</a>
+                <a href="">link2</a>
+                <a href="">link3</a>
+            </nav>
         </aside>
-        <!--<div id = "image">
+        <!-- <div id = "image">
                 Hover over an image below to display here.
             </div>
             

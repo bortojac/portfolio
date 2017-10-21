@@ -1,0 +1,29 @@
+/* set container as flex
+*/
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* set main content to take up as much space as it needs
+- the footer will stick at the bottom since container takes up whole window and main does not
+
+*/
+main {
+    flex: 1;
+}
+#sidebar {
+    display: none;
+}
+
+/* media queries to handle mobile vs desktop 
+-starting at 900px we should use the sidebar instead of icon*/
+@media screen and (min-width:900px) {
+    #sidebar {
+        display: flex;
+    }
+    #toggleIcon {
+        display: none;
+    }
+}

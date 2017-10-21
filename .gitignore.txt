@@ -1,6 +1,2 @@
+# this is where you put rules to ignore certain files
 
-# ignore img folder
-img
-
-# ignore .jpg
-*.jpg

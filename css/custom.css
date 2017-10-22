@@ -2,29 +2,34 @@
 */
 .container {
     display: flex;
+    background: #999999;
     min-height: 100vh;
-    flex-direction: column;
+    flex-flow: column;
+    font: 24px Helvetica;
 }
 
 /* set main content to take up as much space as it needs
-- the footer will stick at the bottom since container takes up whole window and main does not
-
-*/
+- the footer will stick at the bottom since container takes up whole window and main does not*/
 main {
+    display: flex;  /* we need to make this flex so nav and article are flex items*/
     flex: 1;
+    flex-flow: column; /* mobile first */
+    border: 2px solid blue;
 }
-#sidebar {
-    display: none;
-    width: 25%;
+main > article {
+    order: 2;
+    background-color: lightblue;
+}
+
+main > nav {
+    order: 1;
+    background-color: lightgreen;
 }
 
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/
-@media screen and (min-width:900px) {
-    #sidebar {
-        display: flex;
-    }
-    #toggleIcon {
-        display: none;
+@media all and (min-width:700px) {
+    main {
+        flex-flow: row;
     }
 }

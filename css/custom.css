@@ -19,11 +19,17 @@ main {
 main > article {
     order: 2;
     background-color: lightblue;
+    flex: auto;
 }
 
 main > nav {
+    display: flex;
+    flex-flow: row;
     order: 1;
+    flex: 0 1;
     background-color: lightgreen;
+    justify-content: center;
+
 }
 
 /* media queries to handle mobile vs desktop 
@@ -31,5 +37,10 @@ main > nav {
 @media all and (min-width:700px) {
     main {
         flex-flow: row;
+    }
+    main > nav {
+        flex-flow: column;
+        justify-content: center;
+        
     }
 }

@@ -23,25 +23,61 @@ main > article {
     flex-flow: column; /* mobile first */
     flex: auto;
     height: 100vh;
-    background-color: lightsalmon;
+    color: #fff;
+    background-color: darkblue;
+    background-image: url("../img/topRock.jpg");
 }
 
 article > nav {
     display: flex;
     flex-flow: row;
     flex: 0 1 auto;
-    background-color: lightgreen;
+    background-color: #fff;
+    color: #000000;
     justify-content: center;
 }
+
+nav > a {
+    margin: 1rem;
+}
 .intro {
+    display: flex;
     flex: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainHeading {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+div > h1 {
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+div > h3 {
+    font-size: 1.2rem;
 }
 .projects {
     display: flex;
     flex-flow: column;
-    background-color: lightblue;
+    background-color: rgba(255, 255, 255, 0.53);
 }
 
+.projects > section {
+    margin: 4rem 0 2rem 0;
+    text-align: center;
+    background-color: #fff;
+    min-height: 20rem;
+}
+
+footer {
+    text-align: center;
+    background-color: #fff;
+}
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/
 @media all and (min-width:700px) {
@@ -51,7 +87,6 @@ article > nav {
     article > nav {
         flex-flow: column;
         justify-content: center;
-        background-color: lightgreen;
         
     }
 }

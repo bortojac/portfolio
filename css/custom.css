@@ -54,7 +54,7 @@ nav > a {
     align-items: center;
 }
 div > h1 {
-    font-size: 4rem;
+    font-size: 6rem;
     margin: 1rem;
 }
 
@@ -71,7 +71,7 @@ div > h3 {
     margin: 4rem 0 2rem 0;
     text-align: center;
     background-color: #fff;
-    min-height: 20rem;
+    height: 100vh;
 }
 
 footer {
@@ -80,7 +80,7 @@ footer {
 }
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/
-@media all and (min-width:700px) {
+@media screen and (min-width:700px) {
     main > article {
         flex-flow: row;
     }

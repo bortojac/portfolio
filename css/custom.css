@@ -5,10 +5,11 @@ body {
 }
 .container {
     display: flex;
-    background: #999999;
+    background: #fff;
     min-height: 100vh;
     flex-flow: column;
     font: 24px Helvetica;
+
 }
 
 /* set main content to take up as much space as it needs
@@ -32,14 +33,30 @@ article > nav {
     display: flex;
     flex-flow: row;
     flex: 0 1 auto;
-    background-color: #fff;
+    /*background-color: #fff;*/
     color: #000000;
     justify-content: center;
 }
 
 nav > a {
     margin: 1rem;
+    color: #fff;
 }
+
+.fa-circle-o:hover {
+    opacity: .3;
+}
+
+.tooltip {
+    display:none;
+}
+
+nav > a:hover .tooltip {
+    display: block;
+    position: absolute;
+    color: #fff;
+}
+
 .intro {
     display: flex;
     flex: auto;
@@ -64,19 +81,58 @@ div > h3 {
 .projects {
     display: flex;
     flex-flow: column;
-    background-color: rgba(255, 255, 255, 0.53);
+    background-color: #fff;
 }
 
 .projects > section {
-    margin: 4rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     background-color: #fff;
     height: 100vh;
 }
 
+.projectDesc {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.project1 {
+    margin: 6rem 0 3rem 0;
+    color: #fff;
+    background-image: url("../img/Nature-Background-Wallpapers-4.jpg");
+}
+
+.project2 {
+    margin: 3rem 0 3rem 0;
+    color: #fff;
+    background-image: url("../img/ChilhoweeintheSmokies.jpg");
+}
+
+.project3 {
+    margin: 3rem 0 0 0;
+    color: #fff;
+    background-image: url("../img/Fall-Nature-Background-Pictures.jpg");
+}
+
 footer {
     text-align: center;
     background-color: #fff;
+}
+
+footer > a {
+    color: #000000;
+}
+
+/* add parallax to all the images */
+.project1, .project2, .project3, main > article {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/
@@ -87,6 +143,7 @@ footer {
     article > nav {
         flex-flow: column;
         justify-content: center;
+        /*background-color: #fff;*/
         
     }
 }

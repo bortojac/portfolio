@@ -25,7 +25,6 @@ main > article {
     flex: auto;
     height: 100vh;
     color: #fff;
-    background-color: darkblue;
     background-image: url("../img/topRock.jpg");
 }
 
@@ -33,7 +32,6 @@ article > nav {
     display: flex;
     flex-flow: row;
     flex: 0 1 auto;
-    /*background-color: #fff;*/
     color: #000000;
     justify-content: center;
 }
@@ -87,9 +85,9 @@ div > h3 {
 .projects > section {
     display: flex;
     align-items: center;
+    color: #fff;
     justify-content: center;
     text-align: center;
-    background-color: #fff;
     height: 100vh;
 }
 
@@ -102,19 +100,16 @@ div > h3 {
 
 .project1 {
     margin: 6rem 0 3rem 0;
-    color: #fff;
     background-image: url("../img/Nature-Background-Wallpapers-4.jpg");
 }
 
 .project2 {
     margin: 3rem 0 3rem 0;
-    color: #fff;
     background-image: url("../img/ChilhoweeintheSmokies.jpg");
 }
 
 .project3 {
     margin: 3rem 0 0 0;
-    color: #fff;
     background-image: url("../img/Fall-Nature-Background-Pictures.jpg");
 }
 
@@ -133,6 +128,8 @@ footer > a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgba(20, 20, 34, 0.8);
+    background-blend-mode: darken;
 }
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/

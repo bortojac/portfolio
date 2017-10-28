@@ -123,6 +123,24 @@ div > h3 {
     background-image: url("../img/Fall-Nature-Background-Pictures.jpg");
 }
 
+div > a {
+    color: #000000;
+    text-decoration: none;
+}
+.round {
+    display: flex;
+    background-color: #fff;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 4rem;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s, color 1s;
+}
+.round:hover {
+    opacity: .4;
+}
+
 /* footer */
 footer {
     text-align: center;
@@ -155,7 +173,7 @@ footer > a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(20, 20, 34, 0.8);
+    background-color: rgba(20, 20, 34, 0.6);
     background-blend-mode: darken;
 }
 /* media queries to handle mobile vs desktop 

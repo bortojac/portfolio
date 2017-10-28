@@ -70,6 +70,11 @@ nav > a:hover .tooltip {
     align-items: center;
 }
 
+.fa-angle-down {
+    position: absolute;
+    bottom: 5vh;
+}
+
 /* headers */
 .mainHeading {
     display: flex;

@@ -3,6 +3,7 @@
 body {
     margin: 0;
 }
+/* set up flex */
 .container {
     display: flex;
     background: #fff;
@@ -11,7 +12,6 @@ body {
     font: 24px Helvetica;
 
 }
-
 /* set main content to take up as much space as it needs
 - the footer will stick at the bottom since container takes up whole window and main does not*/
 main {
@@ -23,11 +23,12 @@ main > article {
     display: flex;
     flex-flow: column; /* mobile first */
     flex: auto;
+    text-align: center;
     height: 100vh;
     color: #fff;
     background-image: url("../img/topRock.jpg");
 }
-
+ /* nav and intro */
 article > nav {
     display: flex;
     flex-flow: row;
@@ -35,18 +36,25 @@ article > nav {
     color: #000000;
     justify-content: center;
 }
-
-nav > a {
-    margin: 1rem;
-    color: #fff;
+nav {
+    transition: opacity .4s;
 }
-
-.fa-circle-o:hover {
-    opacity: .3;
+nav:hover > a {
+    opacity: .4;
+}
+nav > a {
+    color: #fff;
+    margin: 1rem;
+    text-decoration: none;
+    transition: opacity .5s;
+}
+nav > a:hover {
+    opacity: 1;
 }
 
 .tooltip {
     display:none;
+    font-size: 1rem;
 }
 
 nav > a:hover .tooltip {
@@ -62,6 +70,7 @@ nav > a:hover .tooltip {
     align-items: center;
 }
 
+/* headers */
 .mainHeading {
     display: flex;
     flex-flow: column;
@@ -69,13 +78,14 @@ nav > a:hover .tooltip {
     align-items: center;
 }
 div > h1 {
-    font-size: 6rem;
+    font-size: 7rem;
     margin: 1rem;
 }
 
 div > h3 {
     font-size: 1.2rem;
 }
+/* projects */
 .projects {
     display: flex;
     flex-flow: column;
@@ -113,14 +123,31 @@ div > h3 {
     background-image: url("../img/Fall-Nature-Background-Pictures.jpg");
 }
 
+/* footer */
 footer {
     text-align: center;
     background-color: #fff;
+    transition: background-color 1s;
+}
+
+footer:hover {
+    background-color: #000000;
 }
 
 footer > a {
     color: #000000;
+    transition: opacity .5s
 }
+
+footer:hover > a {
+    opacity: .3;
+    color: #fff;
+}
+
+footer > a:hover {
+    opacity: 1;
+}
+
 
 /* add parallax to all the images */
 .project1, .project2, .project3, main > article {
@@ -141,6 +168,6 @@ footer > a {
         flex-flow: column;
         justify-content: center;
         /*background-color: #fff;*/
-        
     }
+
 }

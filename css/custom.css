@@ -18,6 +18,7 @@ main {
     flex: 1;
     flex-flow: column; /* mobile first */
 }
+
 main > article {
     display: flex;
     flex-flow: column; /* mobile first */
@@ -38,15 +39,17 @@ article > nav {
     justify-content: center;
 }
 nav {
-    transition: opacity .4s;
+    transition: opacity .4s, background-color .4s;
 }
-
+h2 {
+    font-size: 1.5rem;
+}
 #projectHeading {
     position: absolute;
     color: #fff;
-    font-size: 1.2rem;
+    font-weight: normal;
     display: block;
-    bottom: 18vh;
+    bottom: 15vh;
 }
 
 nav > a {
@@ -57,8 +60,7 @@ nav > a {
 }
 
 .tooltip {
-    display:none;
-    font-size: 1rem;
+    display: none;
 }
 
 .intro {
@@ -70,7 +72,7 @@ nav > a {
 
 .fa-angle-down {
     position: absolute;
-    bottom: 10vh;
+    bottom: 11vh;
 }
 
 /* headers */
@@ -81,12 +83,13 @@ nav > a {
     align-items: center;
 }
 div > h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     margin: 1rem;
 }
 
 div > h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: normal;
 }
 /* projects */
 .projects {
@@ -97,6 +100,7 @@ div > h3 {
 
 .projects > section {
     display: flex;
+    position: relative;
     align-items: center;
     color: #fff;
     justify-content: center;
@@ -130,15 +134,30 @@ div > a {
     color: #000000;
     text-decoration: none;
 }
+
+p {
+font-size: 1rem;
+padding: 1rem;
+margin: 2rem 0;
+}
+
 .round {
     display: flex;
     background-color: #fff;
+    color: rgb(1, 1, 54); 
     width: 8rem;
     height: 8rem;
     border-radius: 4rem;
     justify-content: center;
     align-items: center;
     transition: opacity 1s, color 1s;
+}
+
+#backHome {
+    color: #fff;
+    position: absolute;
+    bottom: 2vh;
+    right: 2vh;
 }
 
 /* footer */
@@ -163,7 +182,7 @@ footer > a {
 }
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/
-@media screen and (min-width:700px) {
+@media screen and (min-width:900px) {
     main > article {
         flex-flow: row;
     }
@@ -171,7 +190,13 @@ footer > a {
         flex-flow: column;
         justify-content: center;
         order: 0;
-        /*background-color: #fff;*/
+    }
+
+    div > h1 {
+        font-size: 5rem;
+    }
+    div > h3 {
+        font-size: 1.2rem;
     }
 
     #projectHeading {
@@ -181,19 +206,28 @@ footer > a {
         bottom: 5vh;
     }
 
-    nav:hover > a {
-        opacity: .4;
+    nav:hover {
+        background-color: #fff;
+    }
+    .tooltip {
+        display: block;
+        visibility: hidden;
+        font-size: 1rem;
     }
 
     nav > a:hover .tooltip {
-        display: block;
-        position: absolute;
-        color: #fff;
+        visibility: visible;
+        color: rgb(1, 1, 54);
     }
-    
+    nav:hover > a {
+        opacity: .3;
+        color: rgb(1, 1, 54);
+    }
+
     nav > a:hover {
-    opacity: 1;
+        opacity: 1;
     }
+
     .round:hover {
         opacity: .4;
     }

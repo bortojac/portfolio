@@ -10,7 +10,6 @@ body {
     min-height: 100vh;
     flex-flow: column;
     font: 24px Helvetica;
-
 }
 /* set main content to take up as much space as it needs
 - the footer will stick at the bottom since container takes up whole window and main does not*/
@@ -26,41 +25,41 @@ main > article {
     text-align: center;
     height: 100vh;
     color: #fff;
-    background-image: url("../img/topRock.jpg");
+    background-color: rgba(1, 1, 40, .7);
+    background-image: url("../img/manhattan.jpg");
 }
  /* nav and intro */
 article > nav {
     display: flex;
     flex-flow: row;
     flex: 0 1 auto;
+    order: 1;
     color: #000000;
     justify-content: center;
 }
 nav {
     transition: opacity .4s;
 }
-nav:hover > a {
-    opacity: .4;
-}
-nav > a {
+
+nav > a:not(:first-child) {
     color: #fff;
     margin: 1rem;
+    display: none;
     text-decoration: none;
     transition: opacity .5s;
 }
-nav > a:hover {
-    opacity: 1;
+
+.fa-bars {
+    color: #fff;
+    position: absolute;
+    top: 2vw;
+    left: 2vw;
+    text-decoration: none;
 }
 
 .tooltip {
     display:none;
     font-size: 1rem;
-}
-
-nav > a:hover .tooltip {
-    display: block;
-    position: absolute;
-    color: #fff;
 }
 
 .intro {
@@ -72,7 +71,7 @@ nav > a:hover .tooltip {
 
 .fa-angle-down {
     position: absolute;
-    bottom: 5vh;
+    bottom: 10vh;
 }
 
 /* headers */
@@ -115,17 +114,17 @@ div > h3 {
 
 .project1 {
     margin: 6rem 0 3rem 0;
-    background-image: url("../img/Nature-Background-Wallpapers-4.jpg");
+    background:rgb(1, 1, 54);
 }
 
 .project2 {
     margin: 3rem 0 3rem 0;
-    background-image: url("../img/ChilhoweeintheSmokies.jpg");
+    background: rgb(1, 1, 54);
 }
 
 .project3 {
     margin: 3rem 0 0 0;
-    background-image: url("../img/Fall-Nature-Background-Pictures.jpg");
+    background:  rgb(1, 1, 54);
 }
 
 div > a {
@@ -142,9 +141,6 @@ div > a {
     align-items: center;
     transition: opacity 1s, color 1s;
 }
-.round:hover {
-    opacity: .4;
-}
 
 /* footer */
 footer {
@@ -153,24 +149,10 @@ footer {
     transition: background-color 1s;
 }
 
-footer:hover {
-    background-color: #000000;
-}
-
 footer > a {
     color: #000000;
     transition: opacity .5s
 }
-
-footer:hover > a {
-    opacity: .3;
-    color: #fff;
-}
-
-footer > a:hover {
-    opacity: 1;
-}
-
 
 /* add parallax to all the images */
 .project1, .project2, .project3, main > article {
@@ -178,7 +160,6 @@ footer > a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(20, 20, 34, 0.6);
     background-blend-mode: darken;
 }
 /* media queries to handle mobile vs desktop 
@@ -190,7 +171,56 @@ footer > a:hover {
     article > nav {
         flex-flow: column;
         justify-content: center;
+        order: 0;
         /*background-color: #fff;*/
     }
 
+    #topTooltip {
+        display: none;
+        color: #fff;
+    }
+    #navProjects:hover > #topTooltip {
+        display: inline-block;
+        position: absolute;
+        font-size: 2rem;
+        top: 1vh;
+        left: 8vh;
+    }
+
+    .fa-angle-down {
+        bottom: 5vh;
+    }
+
+    nav:hover > a {
+        opacity: .4;
+    }
+
+    nav > a:hover .tooltip {
+        display: block;
+        position: absolute;
+        color: #fff;
+    }
+    
+    nav > a:hover {
+    opacity: 1;
+    }
+    .round:hover {
+        opacity: .4;
+    }
+
+    footer:hover {
+        background-color: #000000;
+    }
+
+    footer:hover > a {
+        opacity: .3;
+        color: #fff;
+    }
+
+    footer > a:hover {
+        opacity: 1;
+    }
+
 }
+
+

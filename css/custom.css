@@ -41,20 +41,19 @@ nav {
     transition: opacity .4s;
 }
 
-nav > a:not(:first-child) {
+#projectHeading {
+    position: absolute;
     color: #fff;
-    margin: 1rem;
-    display: none;
-    text-decoration: none;
-    transition: opacity .5s;
+    font-size: 1.2rem;
+    display: block;
+    bottom: 18vh;
 }
 
-.fa-bars {
+nav > a {
     color: #fff;
-    position: absolute;
-    top: 2vw;
-    left: 2vw;
+    margin: 1rem;
     text-decoration: none;
+    transition: opacity .5s;
 }
 
 .tooltip {
@@ -82,7 +81,7 @@ nav > a:not(:first-child) {
     align-items: center;
 }
 div > h1 {
-    font-size: 7rem;
+    font-size: 5rem;
     margin: 1rem;
 }
 
@@ -175,18 +174,9 @@ footer > a {
         /*background-color: #fff;*/
     }
 
-    #topTooltip {
+    #projectHeading {
         display: none;
-        color: #fff;
     }
-    #navProjects:hover > #topTooltip {
-        display: inline-block;
-        position: absolute;
-        font-size: 2rem;
-        top: 1vh;
-        left: 8vh;
-    }
-
     .fa-angle-down {
         bottom: 5vh;
     }

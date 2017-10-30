@@ -1,11 +1,5 @@
 $(document).ready(
 	function() {
-		$('a[href^="#"]').hide();
-		// show the circle links when they click Projects
-		$('#navProjects').on('click', function (e) {
-			$('a[href^="#"]').toggle();			
-			return false;
-		});
 		// animate the scroll	
 		$('a[href^="#"]').on('click', function (e) {
 			e.preventDefault();

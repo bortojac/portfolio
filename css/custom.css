@@ -171,10 +171,7 @@ footer > a {
     color: #000000;
     transition: opacity .5s
 }
-
-/* add parallax to all the images */
 .project1, .project2, .project3, main > article {
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -244,7 +241,13 @@ footer > a {
     footer > a:hover {
         opacity: 1;
     }
-
+    /* add parallax to all the images */
+    .project1, .project2, .project3, main > article {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 
 

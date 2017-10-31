@@ -41,6 +41,7 @@ article > nav {
 nav {
     transition: opacity .4s, background-color .4s;
 }
+
 h2 {
     font-size: 1.5rem;
 }
@@ -48,13 +49,12 @@ h2 {
     position: absolute;
     color: #fff;
     font-weight: normal;
-    display: block;
-    bottom: 15vh;
+    bottom: 5vh;
 }
 
 nav > a {
     color: #fff;
-    margin: 1rem;
+    margin: .5rem;
     text-decoration: none;
     transition: opacity .5s;
 }
@@ -65,14 +65,10 @@ nav > a {
 
 .intro {
     display: flex;
+    position: relative;
     flex: auto;
     justify-content: center;
     align-items: center;
-}
-
-.fa-angle-down {
-    position: absolute;
-    bottom: 11vh;
 }
 
 /* headers */
@@ -82,6 +78,13 @@ nav > a {
     justify-content: center;
     align-items: center;
 }
+
+#angleDown {
+    position: absolute;
+    display: none;
+    bottom: 2vh;
+}
+
 div > h1 {
     font-size: 4rem;
     margin: 1rem;
@@ -153,7 +156,7 @@ margin: 2rem 0;
     transition: opacity 1s, color 1s;
 }
 
-#backHome {
+.backHome {
     color: #fff;
     position: absolute;
     bottom: 2vh;
@@ -185,7 +188,7 @@ footer > a {
     }
     article > nav {
         flex-flow: column;
-        justify-content: center;
+        justify-content: center;    
         order: 0;
     }
 
@@ -199,8 +202,8 @@ footer > a {
     #projectHeading {
         display: none;
     }
-    .fa-angle-down {
-        bottom: 5vh;
+    #angleDown {
+        display: block;
     }
 
     nav:hover {

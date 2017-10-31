@@ -84,6 +84,12 @@ nav > a {
     bottom: 0vh;
 }
 
+#info {
+    position: absolute;
+    bottom: 1vh;
+    left: 2vh;
+}
+
 div > h1 {
     font-size: 4rem;
     margin: 1rem;
@@ -176,13 +182,17 @@ margin: 2rem 0;
 
 /* footer */
 footer {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
     background-color: #fff;
     transition: background-color 1s;
 }
 
 footer > a {
     color: #000000;
+    margin: 1rem;
     transition: opacity .5s
 }
 .project1, .project2, .project3, main > article {
@@ -215,7 +225,13 @@ footer > a {
     }
     #angleDown {
         bottom: 2vh;
+    
     }
+
+    #info {
+        bottom: 2vh;
+    }
+
     nav:hover {
         background-color: #fff;
     }

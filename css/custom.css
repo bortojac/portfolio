@@ -49,7 +49,7 @@ h2 {
     position: absolute;
     color: #fff;
     font-weight: normal;
-    bottom: 5vh;
+    bottom: 8vh;
 }
 
 nav > a {
@@ -81,8 +81,7 @@ nav > a {
 
 #angleDown {
     position: absolute;
-    display: none;
-    bottom: 2vh;
+    bottom: 0vh;
 }
 
 div > h1 {
@@ -100,7 +99,19 @@ div > h3 {
     flex-flow: column;
     background-color: #fff;
 }
-
+.fade-up {
+    opacity: 0;
+    transition: all 700ms ease-out;
+    -webkit-transform: translate3d(0px, 50px, 0px);
+    transform: translate3d(0px, 50, 0px);
+  }
+  /* for subject classes whose parents have both fade-up and in-view classes*/
+  .fade-up.in-view {
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
+  
 .projects > section {
     display: flex;
     position: relative;
@@ -203,9 +214,8 @@ footer > a {
         display: none;
     }
     #angleDown {
-        display: block;
+        bottom: 2vh;
     }
-
     nav:hover {
         background-color: #fff;
     }

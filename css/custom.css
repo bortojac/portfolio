@@ -183,6 +183,7 @@ margin: 2rem 0;
 /* footer */
 footer {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     height: 10vh;
@@ -194,6 +195,11 @@ footer > a {
     color: #000000;
     margin: 1rem;
     transition: opacity .5s
+}
+footer > img {
+    position: absolute;
+    left: 1vw;
+    max-height: 6vh;
 }
 .project1, .project2, .project3, main > article {
     background-position: center;

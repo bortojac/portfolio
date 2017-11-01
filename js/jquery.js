@@ -26,7 +26,9 @@ $(document).ready(
 		}
 		
 		$window.on('scroll resize', check_if_in_view);
+		/*trigger a scroll event as soon as the DOM is ready. We do this so that if any of the elements which should be animated are within the viewport, they will be detected as in view and the animation applied as if we had scrolled.*/
 		$window.trigger('scroll');
+
 		// animate the scroll	
 		$('a[href^="#"]').on('click', function (e) {
 			e.preventDefault();

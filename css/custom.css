@@ -104,6 +104,7 @@ div > h3 {
     flex-flow: column;
     background-color: #fff;
 }
+
 .fade-up {
     opacity: 0;
     -moz-transition: all 700ms ease-out;
@@ -142,21 +143,28 @@ div > h3 {
 .projectDesc {
     display: flex;
     flex-flow: column;
+    flex: 1;
     justify-content: center;
     align-items: center; 
 }
 
 .project1 {
+    display: flex;
+    flex-flow: column;
     margin: 6rem 0 3rem 0;
     background:rgb(1, 1, 54);
 }
 
 .project2 {
+    display: flex;
+    flex-flow: column;
     margin: 3rem 0 3rem 0;
     background: rgb(1, 1, 54);
 }
 
 .project3 {
+    display: flex;
+    flex-flow: column;
     margin: 3rem 0 0 0;
     background:  rgb(1, 1, 54);
 }
@@ -184,15 +192,20 @@ margin: 2rem 0;
     transition: opacity 1s, color 1s;
 }
 
+section > footer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
 .backHome {
     color: #fff;
-    position: absolute;
     bottom: 2%;
     right: 1%;
 }
 
 /* footer */
-footer {
+#socialLinks {
     display: flex;
     position: relative;
     justify-content: center;
@@ -202,13 +215,13 @@ footer {
     transition: background-color 1s;
 }
 
-footer > a {
+#socialLinks > a {
     color: #000000;
     margin: 1rem;
     transition: opacity .5s;
 }
 
-footer > img {
+#socialLinks > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -274,16 +287,16 @@ footer > img {
         opacity: .4;
     }
 
-    footer:hover {
+    #socialLinks:hover {
         background-color: #000000;
     }
 
-    footer:hover > a {
+    #socialLinks:hover > a {
         opacity: .3;
         color: #fff;
     }
 
-    footer > a:hover {
+    #socialLinks > a:hover {
         opacity: 1;
     }
     /* add parallax to all the images */

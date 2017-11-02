@@ -225,7 +225,8 @@ section > footer {
     position: absolute;
     top: 0;
     left: 0;
-    max-height: 6rem;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 

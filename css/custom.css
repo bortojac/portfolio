@@ -7,7 +7,7 @@ body {
 .container {
     display: flex;
     background: #fff;
-    min-height: 100vh;
+    min-height: 10050%;vh;
     flex-flow: column;
     font: 24px Helvetica;
 }
@@ -148,6 +148,14 @@ div > h3 {
     justify-content: center;
     align-items: center; 
 }
+.test {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
 
 .project1 {
     display: flex;
@@ -170,14 +178,22 @@ div > h3 {
     background:  rgb(1, 1, 54);
 }
 
+#aboutMeContainer {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 img {
-    width: 10rem;
+    width: 5rem;
     margin: 0 2rem;
 
 }
 
 .imageContainer {
-    width: 100%
+    width: 100%;
 }
 
 div > a {
@@ -291,6 +307,31 @@ section > footer {
         opacity: .4;
     }
 
+    .projectDesc, .aboutMeDesc {
+        display: flex;
+        flex-flow: row;
+        flex: 1;
+        width: 100%;
+        justify-content: center;
+        align-items: center; 
+    }
+    .test {
+        display: flex;
+        flex-flow: column;
+        flex: 1;
+        height: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .imageContainer {
+        width: 50%;
+    }
+   
+    img {
+        width: 10rem;
+        margin: 0 2rem;
+    
+    }
     #socialLinks:hover {
         background-color: #000000;
     }

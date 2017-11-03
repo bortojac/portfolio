@@ -140,10 +140,11 @@ div > h3 {
     height: 100vh;
 }
 
-.projectDesc {
+.projectDesc, .aboutMeDesc {
     display: flex;
     flex-flow: column;
     flex: 1;
+    width: 100%;
     justify-content: center;
     align-items: center; 
 }
@@ -155,18 +156,28 @@ div > h3 {
     background:rgb(1, 1, 54);
 }
 
-.project2 {
+.project2, .project3 {
     display: flex;
     flex-flow: column;
     margin: 3rem 0 3rem 0;
     background: rgb(1, 1, 54);
 }
 
-.project3 {
+.aboutMe {
     display: flex;
     flex-flow: column;
     margin: 3rem 0 0 0;
     background:  rgb(1, 1, 54);
+}
+
+img {
+    width: 10rem;
+    margin: 0 2rem;
+
+}
+
+.imageContainer {
+    width: 100%
 }
 
 div > a {
@@ -221,16 +232,8 @@ section > footer {
     transition: opacity .5s;
 }
 
-#socialLinks > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: 100%;
-    max-height: 100%;
-}
 
-
-.project1, .project2, .project3, main > article {
+.project1, .project2, .project3, .aboutMe, main > article {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -300,6 +303,7 @@ section > footer {
     #socialLinks > a:hover {
         opacity: 1;
     }
+    
     /* add parallax to all the images */
     .project1, .project2, .project3, main > article {
         background-attachment: fixed;

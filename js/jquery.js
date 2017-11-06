@@ -1,9 +1,10 @@
 $(document).ready(
 	function() {
+		
 		// create fade from bottom
 		var $animation_elements = $('.animateThese');
 		var $window = $(window);
-		console.log($animation_elements);
+		
 		function check_if_in_view() {
 		  var window_height = $window.height();
 		  var window_top_position = $window.scrollTop();
@@ -41,5 +42,19 @@ $(document).ready(
 				window.location.hash = target;
 			});
 		});
+
+		// scale the homepage button on click
+
+		$('#menuButton').click(function() {
+			console.log($('#menuButton').css('transform'));
+			if ($('.menu').css('transform') === 'none') {
+				$('.menu').addClass('scaled');
+				$('.menu > h3').hide();
+			} else {
+				$('.menu').removeClass('scaled');
+				$('.menu > h3').delay(700).show(0);
+			}
+		});
+
 	});
 

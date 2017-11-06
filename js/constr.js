@@ -59,4 +59,3 @@ var VHChromeFix = function(selectors) {
     }
   };
 
-  var vhFix = new VHChromeFix(options)

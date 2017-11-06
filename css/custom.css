@@ -29,6 +29,7 @@ main > article {
     background-color: rgba(1, 1, 40, .7);
     background-image: url("../img/manhattan.jpg");
 }
+
  /* nav and intro */
 article > nav {
     display: flex;
@@ -43,14 +44,13 @@ nav {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 #projectHeading {
     align-content: flex-end;
     color: #fff;
     font-weight: normal;
 }
-
 
 nav > a {
     color: #fff;
@@ -79,15 +79,45 @@ nav > a {
     flex: 1; /* grow to all available space */
     justify-content: center;
     align-items: center;
-    /*margin-top: auto;
-    margin-bottom: auto;*/
 }
 
-.subHeading {
+.menuContainer {
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    flex: initial;
+    flex-flow: column;
+    bottom: 0;
+    left: 0;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    overflow: hidden;
 }
+
+.menu {
+    transition: all .7s ease;
+}
+
+.menu.scaled {
+    transform: scale(80);
+}
+
+.round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: rgb(1, 1, 54); 
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.projectButtons {
+    transition: background-color .4s, opacity .4s;
+}
+
 
 div > h1 {
     font-size: 4rem;
@@ -95,9 +125,10 @@ div > h1 {
 }
 
 div > h3 {
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: normal;
 }
+
 /* projects */
 .projects {
     display: flex;
@@ -180,17 +211,6 @@ padding: 1rem;
 margin: 2rem 0;
 }
 
-.round {
-    display: flex;
-    background-color: #fff;
-    color: rgb(1, 1, 54); 
-    width: 8rem;
-    height: 8rem;
-    border-radius: 4rem;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 1s, color 1s;
-}
 
 section > footer {
     display: flex;
@@ -241,12 +261,11 @@ section > footer {
     .subHeading {
         margin-bottom: auto;
         }
-
-    div > h1 {
+    .intro h1 {
         font-size: 5rem;
     }
-    div > h3 {
-        font-size: 1.2rem;
+    .projects h1 {
+        font-size: 2rem;
     }
 
     #projectHeading {
@@ -275,7 +294,7 @@ section > footer {
         opacity: 1;
     }
 
-    .round:hover {
+    .projectButtons:hover {
         opacity: .4;
     }
 

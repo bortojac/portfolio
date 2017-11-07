@@ -46,14 +46,23 @@ $(document).ready(
 		// scale the homepage button on click
 
 		$('#menuButton').click(function() {
-			console.log($('#menuButton').css('transform'));
+			//console.log($('#menuButton').css('transform'));
 			if ($('.menu').css('transform') === 'none') {
+				$('nav').fadeIn(700);				
 				$('.menu').addClass('scaled');
 				$('.menu > h3').hide();
 			} else {
 				$('.menu').removeClass('scaled');
+				$('nav').fadeOut();				
 				$('.menu > h3').delay(700).show(0);
 			}
+		});
+
+		// project dropdown
+		$('#projectLink').click(function() {			
+			$('nav > a:last-child()').fadeToggle(400, 'swing', function() {
+				$('.projectDropDown').slideToggle(600);
+			});
 		});
 
 	});

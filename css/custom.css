@@ -2,6 +2,7 @@
 */
 body {
     margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* set up flex */
 .container {
@@ -9,7 +10,7 @@ body {
     background: #fff;
     min-height: 100vh;
     flex-flow: column;
-    font: 24px Helvetica;
+    font: 24px;
 }
 /* set main content to take up as much space as it needs
 - the footer will stick at the bottom since container takes up whole window and main does not*/
@@ -31,16 +32,34 @@ main > article {
 }
 
  /* nav and intro */
-article > nav {
-    display: flex;
-    flex-flow: row;
-    flex: initial; /* do not grow for any available space */
-    order: 1;
-    color: #000000;
-    justify-content: center;
+ nav {
+    position: absolute;
+    display: none;
+    z-index: 5;
 }
-nav {
-    transition: opacity .4s, background-color .4s;
+
+nav > a {
+    font-size: 3rem;
+    display: block;
+    color: rgb(1, 1, 54);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.projectDropDown {
+    display: none;
+}
+
+.projectDropDown > a {
+    color: rgb(1, 1, 54);
+    text-decoration: none;    
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.projectDropDown > a:hover {
+    opacity: .7;
 }
 
 h2 {
@@ -52,13 +71,6 @@ h2 {
     font-weight: normal;
 }
 
-nav > a {
-    color: #fff;
-    margin: .5rem;
-    text-decoration: none;
-    transition: opacity .5s;
-}
-
 .tooltip {
     display: none;
 }
@@ -68,8 +80,9 @@ nav > a {
     position: relative;
     flex: auto;
     flex-flow: column;
+    justify-content: center;
     align-items: center;
-
+    font-weight: bold;
 }
 
 /* headers */
@@ -86,20 +99,24 @@ nav > a {
     display: flex;
     flex-flow: column;
     bottom: 0;
-    left: 0;
     justify-content: flex-end;
-    width: 100%;
+    width: 50%;
     height: 100%;
     align-items: center;
-    overflow: hidden;
 }
 
 .menu {
-    transition: all .7s ease;
+    transition: transform .7s ease, height .7s ease;
+    overflow: hidden;
+}
+
+.menu:hover {
+    cursor: pointer;
 }
 
 .menu.scaled {
-    transform: scale(80);
+    height: 100%;
+    transform: scale(5);
 }
 
 .round {
@@ -125,8 +142,9 @@ div > h1 {
 }
 
 div > h3 {
-    font-size: .8rem;
-    font-weight: normal;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* projects */
@@ -211,7 +229,6 @@ padding: 1rem;
 margin: 2rem 0;
 }
 
-
 section > footer {
     display: flex;
     width: 100%;
@@ -257,6 +274,7 @@ section > footer {
         flex-flow: column;
         justify-content: center;    
         order: 0;
+        display: none;
     }
     .subHeading {
         margin-bottom: auto;
@@ -272,26 +290,8 @@ section > footer {
         display: none;
     }
 
-    nav:hover {
-        background-color: #fff;
-    }
-    .tooltip {
-        display: block;
-        visibility: hidden;
-        font-size: 1rem;
-    }
-
-    nav > a:hover .tooltip {
-        visibility: visible;
-        color: rgb(1, 1, 54);
-    }
-    nav:hover > a {
-        opacity: .3;
-        color: rgb(1, 1, 54);
-    }
-
     nav > a:hover {
-        opacity: 1;
+        opacity: .7;
     }
 
     .projectButtons:hover {

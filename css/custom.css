@@ -76,10 +76,6 @@ main > article {
     overflow: hidden;
 }
 
-.menu:hover {
-    cursor: pointer;
-}
-
 .menu.scaled {
     height: 100%;
     transform: scale(5);
@@ -113,19 +109,11 @@ nav > a {
     cursor: pointer;
 }
 
-nav > a:hover {
-    opacity: .5;
-}
 .projectDropDown {
     height: 0px;
     transition: height 700ms ease-out;
     overflow: hidden;
 }
-
-.projectDropDown > a:hover {
-    opacity: .5;
-}
-
 
 .swing {
     color: rgb(1, 1, 54);
@@ -149,11 +137,11 @@ nav > a:hover {
 }
 
 
-.swing.active{
+.swing.active {
     opacity: .8;
-    -moz-transition: opacity 700ms ease-out, transform 500ms ease-out;
-    -webkit-transition: opacity 700ms ease-out, transform 500ms ease-out;
-    -o-transition: opacity 700ms ease, transform 500ms ease-out;
+    -moz-transition: opacity 700ms ease, transform 500ms ease;
+    -webkit-transition: opacity 700ms ease, transform 500ms ease;
+    -o-transition: opacity 700ms ease, transform 500ms ease;
     transition: opacity 700ms ease, transform 500ms ease;
     -moz-transform: translate3d(0px, 0px, 0px);
     -webkit-transform: translate3d(0px, 0px, 0px);
@@ -171,6 +159,22 @@ nav > a:hover {
 }
 .projectButtons {
     transition: background-color .4s, opacity .4s;
+    height: 8rem;
+    width: 8rem;
+}
+
+.projectDesc {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center; 
+}
+.projectDesc > a {
+    text-decoration: none;
+}
+.projectDesc > h1 {
+    font-size: 2rem;
 }
 
 /* fade from bottom */
@@ -207,14 +211,6 @@ nav > a:hover {
     justify-content: center;
     text-align: center;
     height: 100vh;
-}
-
-.projectDesc {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-    justify-content: center;
-    align-items: center; 
 }
 
 .project1 {
@@ -287,35 +283,21 @@ section > footer {
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/
 @media screen and (min-width:900px) {
-    main > article {
-        flex-flow: row;
-    }
-    article > nav {
-        flex-flow: column;
-        justify-content: center;    
-        order: 0;
-        display: none;
-    }
-    .subHeading {
-        margin-bottom: auto;
-        }
-    .intro h1 {
-        font-size: 5rem;
-    }
-    .projects h1 {
-        font-size: 2rem;
-    }
-
-    #projectHeading {
-        display: none;
-    }
 
     nav > a:hover {
-        opacity: .7;
+        opacity: .5;
+    }
+
+    .menu:hover {
+        cursor: pointer;
+    }
+    
+    .projectDropDown > a:hover {
+        opacity: .5;
     }
 
     .projectButtons:hover {
-        opacity: .4;
+        opacity: .5;
     }
 
     #socialLinks:hover {

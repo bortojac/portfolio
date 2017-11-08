@@ -10,7 +10,6 @@ body {
     background: #fff;
     min-height: 100vh;
     flex-flow: column;
-    font: 24px;
 }
 /* set main content to take up as much space as it needs
 - the footer will stick at the bottom since container takes up whole window and main does not*/
@@ -31,51 +30,9 @@ main > article {
     background-image: url("../img/manhattan.jpg");
 }
 
- /* nav and intro */
- nav {
-    position: absolute;
-    display: none;
-    z-index: 5;
-}
+ /* intro, menu, and navigation */
 
-nav > a {
-    font-size: 3rem;
-    display: block;
-    color: rgb(1, 1, 54);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.projectDropDown {
-    display: none;
-}
-
-.projectDropDown > a {
-    color: rgb(1, 1, 54);
-    text-decoration: none;    
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-.projectDropDown > a:hover {
-    opacity: .7;
-}
-
-h2 {
-    font-size: 1rem;
-}
-#projectHeading {
-    align-content: flex-end;
-    color: #fff;
-    font-weight: normal;
-}
-
-.tooltip {
-    display: none;
-}
-
-.intro {
+ .intro {
     display: flex;
     position: relative;
     flex: auto;
@@ -85,13 +42,22 @@ h2 {
     font-weight: bold;
 }
 
-/* headers */
 .mainHeading {
     display: flex;
     flex-flow: column;
     flex: 1; /* grow to all available space */
     justify-content: center;
     align-items: center;
+}
+.mainHeading > h1 {
+    font-size: 5rem;
+    margin: 1rem;
+}
+
+.mainHeading > h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .menuContainer {
@@ -131,29 +97,83 @@ h2 {
     text-align: center;
 }
 
-.projectButtons {
-    transition: background-color .4s, opacity .4s;
+nav {
+    position: absolute;
+    display: none;
+    z-index: 5;
+    width: 50%;
 }
 
-
-div > h1 {
-    font-size: 4rem;
-    margin: 1rem;
-}
-
-div > h3 {
-    font-size: 1rem;
-    font-weight: bold;
+nav > a {
+    font-size: 3.5rem;
+    display: block;
+    color: rgb(1, 1, 54);
+    opacity: .8;
     text-decoration: none;
+    cursor: pointer;
 }
 
-/* projects */
-.projects {
+nav > a:hover {
+    opacity: .5;
+}
+.projectDropDown {
+    height: 0px;
+    transition: height 700ms ease-out;
+    overflow: hidden;
+}
+
+.projectDropDown > a:hover {
+    opacity: .5;
+}
+
+
+.swing {
+    color: rgb(1, 1, 54);
+    text-decoration: none;    
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0;
+    -moz-transition: opacity 500ms ease-in, transform 700ms ease-in;
+    -webkit-transition: opacity 500ms ease-in, transform 700ms ease-in;
+    -o-transition: opacity 500ms ease-in, transform 700ms ease-in;
+    transition: opacity 500ms ease-in, transform 700ms ease-in;
+    -moz-transform: translate3d(-200px, 0px, 0px);
+    -webkit-transform: translate3d(-200px, 0px, 0px);
+    -o-transform: translate(-200px, 0px);
+    -ms-transform: translate(-200px, 0px);
+    transform: translate3d(-200px, 0px, 0px);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.swing.active{
+    opacity: .8;
+    -moz-transition: opacity 700ms ease-out, transform 500ms ease-out;
+    -webkit-transition: opacity 700ms ease-out, transform 500ms ease-out;
+    -o-transition: opacity 700ms ease, transform 500ms ease-out;
+    transition: opacity 700ms ease, transform 500ms ease;
+    -moz-transform: translate3d(0px, 0px, 0px);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    -o-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+/* PROJECT PAGES */
+
+ projects {
     display: flex;
     flex-flow: column;
     background-color: #fff;
 }
+.projectButtons {
+    transition: background-color .4s, opacity .4s;
+}
 
+/* fade from bottom */
 .fade-up {
     opacity: 0;
     -moz-transition: all 700ms ease-out;

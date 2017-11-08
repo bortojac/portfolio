@@ -58,12 +58,29 @@ $(document).ready(
 			}
 		});
 
-		// project dropdown
-		$('#projectLink').click(function() {			
-			$('nav > a:last-child()').fadeToggle(400, 'swing', function() {
-				$('.projectDropDown').slideToggle(600);
-			});
-		});
+		// project dropdown for nav menu
+		
+		$('#projectLink').click(function() {	
+
+			if ($('.projectDropDown > a:first-child()').hasClass('active')) {
+				//$('a[href^="#aboutMe"]').fadeIn(700, 'swing');
+				$('.projectDropDown > a').removeClass('active'); // this will have implicit loop
+				$('.projectDropDown').animate({
+					height: "0"},
+					700);						
+			} else {
+				//calculate height needed for dropdown menu
+				var dropdownHeight = $('.projectDropDown > a:first-child()').height()*document.getElementsByClassName('swing').length;
+				console.log(dropdownHeight);
+				$('.projectDropDown').animate({
+					height: dropdownHeight},
+					700,
+					function() {
+						$('.projectDropDown > a').delay(700).addClass('active'); // this will have implicit loop
+					});										
+				//$('a[href^="#aboutMe"]').fadeOut(700, 'swing');
+			}
+		})
 
 	});
 

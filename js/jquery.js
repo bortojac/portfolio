@@ -73,16 +73,18 @@ $(document).ready(
 			if ($('.projectDropDown > a:first-child()').hasClass('active')) {
 				//$('a[href^="#aboutMe"]').fadeIn(700, 'swing');
 				$('.projectDropDown > a').removeClass('active'); // this will have implicit loop
-				$('.projectDropDown').animate({
-					height: "0"},
-					700);						
+				$('.projectDropDown').delay(700).animate({
+					height: '0'},
+					200,
+				'linear');						
 			} else {
 				//calculate height needed for dropdown menu
 				var dropdownHeight = $('.projectDropDown > a:first-child()').height()*document.getElementsByClassName('swing').length;
 				console.log(dropdownHeight);
 				$('.projectDropDown').animate({
 					height: dropdownHeight},
-					700,
+					200,
+					'linear',
 					function() {
 						$('.projectDropDown > a').delay(700).addClass('active'); // this will have implicit loop
 					});										

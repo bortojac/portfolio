@@ -46,20 +46,25 @@ $(document).ready(
 		// scale the homepage button on click
 
 		$('#menuButton').click(function() {
-			console.log($('#menuButton').css('transform'));
-			if ($('.menu').css('transform') === 'none') {
+			//console.log($('#menuButton').css('transform'));
 				$('nav').fadeIn(700).css('display', 'flex');				
 				$('.menu').addClass('scaled');
-				$('.menuContainer').css('justify-content', 'center');
+				//$('.menuContainer').css('justify-content', 'center');
 				$('.menu > h3').hide();
-			} else {
-				$('.menu').removeClass('scaled');
-				$('nav').fadeOut(200, function () {
-					$('.menuContainer').css('justify-content', 'flex-end');
-				});				
-				$('.menu > h3').delay(700).show(0);
-			}
+				$('#navSocial').fadeIn(700).css('display', 'flex');
+				$('#navExitButton').fadeIn(700).css('display', 'flex');
 		});
+
+		$('#navExitButton').click(function() {
+			$('.menu').removeClass('scaled');
+			$('nav').fadeOut(200, function () {
+				//$('.menuContainer').css('justify-content', 'flex-end');
+			});				
+			$('.menu > h3').delay(700).show(0);
+			$('#navSocial').fadeOut(200);
+			$('#navExitButton').fadeOut(200);
+		})
+
 
 		// project dropdown for nav menu
 		

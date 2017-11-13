@@ -80,8 +80,8 @@ main > article {
 }
 
 .menu.scaled {
-    height: 100%;
     transform: scale(5);
+    height: 100%;
 }
 
 .round {
@@ -123,6 +123,16 @@ nav > a {
     width: 100%;
     transition: height 700ms ease-out;
     overflow: hidden;
+}
+
+#navExitButton {
+    display: none;
+    z-index: 6;
+    margin-bottom: 1rem;
+    background-color: rgb(1, 1, 54);
+    height: 5rem;
+    width: 4rem;
+    color: #fff;
 }
 
 .swing {
@@ -268,17 +278,18 @@ section > footer {
 }
 
 /* footer */
-#socialLinks {
+.socialLinks {
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
+    flex: auto;
     height: 6rem;
     background-color: #fff;
     transition: background-color 1s;
 }
 
-#socialLinks > a {
+.socialLinks > a {
     color: #000000;
     margin: 1rem;
     transition: opacity .5s;
@@ -301,6 +312,9 @@ section > footer {
     .menu:hover {
         cursor: pointer;
     }
+    .menu.scaled:hover {
+        cursor: default;
+    }
     
     .projectDropDown > a:hover {
         opacity: .5;
@@ -310,16 +324,42 @@ section > footer {
         opacity: .5;
     }
 
-    #socialLinks:hover {
+    #navExitButton:hover {
+        cursor: pointer;
+        opacity: .8; 
+    }
+
+    .socialLinks:hover {
         background-color: #000000;
     }
 
-    #socialLinks:hover > a {
+    .socialLinks:hover > a {
         opacity: .3;
         color: #fff;
     }
 
-    #socialLinks > a:hover {
+    .socialLinks > a:hover {
+        opacity: 1;
+    }
+
+    #navSocial {
+        display: none;
+        border-top: solid rgb(1, 1, 54) 2px;
+        background-color: #fff;
+        z-index: 6;
+    }
+
+    #navSocial > a {
+        transition: opacity .5s;
+        margin: 1rem;
+        color: rgb(1, 1, 54);
+    }
+
+    #navSocial:hover > a{
+        opacity: .3;
+    }
+
+    #navSocial > a:hover {
         opacity: 1;
     }
     /* add parallax to all the images */

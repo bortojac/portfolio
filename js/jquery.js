@@ -51,8 +51,8 @@ $(document).ready(
 				$('.menu').addClass('scaled');
 				//$('.menuContainer').css('justify-content', 'center');
 				$('.menu > h3').hide();
-				$('#navSocial').fadeIn(700).css('display', 'flex');
-				$('#navExitButton').fadeIn(700).css('display', 'flex');
+				$('#navSocial').fadeIn(800).css('display', 'flex');
+				$('#navExitButton').fadeIn(800).css('display', 'flex');
 		});
 
 		$('#navExitButton').click(function() {

@@ -34,7 +34,7 @@ main > article {
 
  .intro {
     display: flex;
-    position: relative;
+    /*position: relative;*/
     flex: auto;
     flex-flow: column;
     justify-content: center;
@@ -42,13 +42,13 @@ main > article {
     font-weight: bold;
 }
 
-.mainHeading {
+/*.mainHeading {
     display: flex;
     flex-flow: column;
-    flex: 1; /* grow to all available space */
+    flex: auto; grow to all available space
     justify-content: center;
     align-items: center;
-}
+} */
 .mainHeading > h1 {
     font-size: 5rem;
     margin: 1rem;
@@ -66,10 +66,13 @@ main > article {
     flex-flow: column;
     bottom: 0;
     justify-content: flex-end;
-    width: 50%;
+    width: 100%;
     height: 100%;
     align-items: center;
 }
+/*.menuContainer.scaled {
+    justify-content: center;
+}*/
 
 .menu {
     transition: transform .7s ease, height .7s ease;
@@ -95,9 +98,15 @@ main > article {
 
 nav {
     position: absolute;
-    display: none;
+    display: none; 
     z-index: 5;
-    width: 50%;
+    width: 100%;
+    order: -1;
+    /* the next few are for when we use jquery to make display:flex*/
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 nav > a {
@@ -111,6 +120,7 @@ nav > a {
 
 .projectDropDown {
     height: 0px;
+    width: 100%;
     transition: height 700ms ease-out;
     overflow: hidden;
 }

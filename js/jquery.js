@@ -46,14 +46,17 @@ $(document).ready(
 		// scale the homepage button on click
 
 		$('#menuButton').click(function() {
-			//console.log($('#menuButton').css('transform'));
+			console.log($('#menuButton').css('transform'));
 			if ($('.menu').css('transform') === 'none') {
-				$('nav').fadeIn(700);				
+				$('nav').fadeIn(700).css('display', 'flex');				
 				$('.menu').addClass('scaled');
+				$('.menuContainer').css('justify-content', 'center');
 				$('.menu > h3').hide();
 			} else {
 				$('.menu').removeClass('scaled');
-				$('nav').fadeOut();				
+				$('nav').fadeOut(200, function () {
+					$('.menuContainer').css('justify-content', 'flex-end');
+				});				
 				$('.menu > h3').delay(700).show(0);
 			}
 		});

@@ -118,6 +118,20 @@ nav > a {
     cursor: pointer;
 }
 
+#navSocial {
+    display: none;
+    border-top: solid rgb(1, 1, 54) 2px;
+    background-color: #fff;
+    z-index: 6;
+}
+
+#navSocial > a {
+    transition: opacity .5s;
+    margin: 1rem;
+    color: rgb(1, 1, 54);
+}
+
+
 .projectDropDown {
     height: 0px;
     width: 100%;
@@ -341,20 +355,7 @@ section > footer {
     .socialLinks > a:hover {
         opacity: 1;
     }
-
-    #navSocial {
-        display: none;
-        border-top: solid rgb(1, 1, 54) 2px;
-        background-color: #fff;
-        z-index: 6;
-    }
-
-    #navSocial > a {
-        transition: opacity .5s;
-        margin: 1rem;
-        color: rgb(1, 1, 54);
-    }
-
+   
     #navSocial:hover > a{
         opacity: .3;
     }

@@ -56,7 +56,7 @@ $(document).ready(
 				console.log(navSocialHeight);
 				$('#navExitButton').fadeIn(700).css(
 					{
-					'bottom': navSocialHeight,
+					//'bottom': navSocialHeight,
 					'display': 'flex'
 					}
 				);

@@ -50,7 +50,7 @@ main > article {
     align-items: center;
 } */
 .mainHeading > h1 {
-    font-size: 5rem;
+    font-size: 3.5rem;
     margin: 1rem;
 }
 
@@ -152,6 +152,8 @@ nav > a {
     background-color: rgb(1, 1, 54);
     height: 4rem;
     width: 4rem;
+    top: 3rem;
+    margin: auto;
     color: #fff;
 
 }
@@ -325,6 +327,10 @@ section > footer {
 /* media queries to handle mobile vs desktop 
 -starting at 900px we should use the sidebar instead of icon*/
 @media screen and (min-width:900px) {
+
+    .mainHeading > h1 {
+        font-size: 5rem;
+    }
 
     nav > a:hover {
         opacity: .5;

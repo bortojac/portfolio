@@ -52,7 +52,15 @@ $(document).ready(
 				//$('.menuContainer').css('justify-content', 'center');
 				$('.menu > h3').hide();
 				$('#navSocial').fadeIn(800).css('display', 'flex');
-				$('#navExitButton').fadeIn(800).css('display', 'flex');
+				var navSocialHeight = $('#navSocial').height();
+				console.log(navSocialHeight);
+				$('#navExitButton').fadeIn(700).css(
+					{
+					'bottom': navSocialHeight,
+					'display': 'flex'
+					}
+				);
+				//$('#navExitButton').fadeIn(800).css('display', 'flex');
 		});
 
 		$('#navExitButton').click(function() {

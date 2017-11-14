@@ -70,19 +70,6 @@ main > article {
     height: 100%;
     align-items: center;
 }
-/*.menuContainer.scaled {
-    justify-content: center;
-}*/
-
-.menu {
-    transition: transform .7s ease, height .7s ease;
-    overflow: hidden;
-}
-
-.menu.scaled {
-    transform: scale(5);
-    height: 100%;
-}
 
 .round {
     display: flex;
@@ -94,6 +81,23 @@ main > article {
     height: 6rem;
     border-radius: 50%;
     text-align: center;
+}
+
+.menu {
+    transition: transform 1s ease, height 1s ease, width 1s ease;
+    overflow: hidden;
+    width: 4rem;
+    height: 4rem;
+}
+
+.menu > h3 {
+    font-size: 1rem;
+}
+
+.menu.scaled {
+    transform: scale(5);
+    height: 100%;
+    width: 100%; /* want full screen on mobile*/
 }
 
 nav {
@@ -120,9 +124,10 @@ nav > a {
 
 #navSocial {
     display: none;
+    position: absolute;
     border-top: solid rgb(1, 1, 54) 2px;
     background-color: #fff;
-    z-index: 6;
+    z-index: 7;
 }
 
 #navSocial > a {
@@ -141,12 +146,14 @@ nav > a {
 
 #navExitButton {
     display: none;
-    z-index: 6;
+    position: absolute;
+    z-index: 88;
     margin-bottom: 1rem;
     background-color: rgb(1, 1, 54);
-    height: 5rem;
+    height: 4rem;
     width: 4rem;
     color: #fff;
+
 }
 
 .swing {
@@ -321,6 +328,19 @@ section > footer {
 
     nav > a:hover {
         opacity: .5;
+    }
+
+    .menu {
+        width: 6rem;
+        height: 6rem;
+    }
+    
+    .menu > h3 {
+        font-size: 1.5rem;
+    }
+    
+    .menu.scaled {
+        width: 10%;
     }
 
     .menu:hover {

@@ -100,5 +100,11 @@ $(document).ready(
 			}
 		})
 
+		// email button
+		$('.fa-envelope-o').click(function() {
+			console.log('worked');
+			window.open('mailto:jack.w.borto@gmail.com');
+		});
+
 	});
 

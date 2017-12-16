@@ -1,5 +1,50 @@
 
-const clientId = 'MnQJHtEysCNlY8sJa4cUEA';
+// yelp is down right now. try this and if it works, remove OAuth2 code commented out below.
+const apiKey = 'heH5QuAaiiSTIVICDPVIpaUhVReJp1SijwS1WI4LHK-ccOSwuRDPkQ6JVwLdDOg5pFgDtka55iJNQ8kJLjS1Po1E8cvglV1z4sN4KdUSC-ho2vqU1J9eJ6Kj1-8xWnYx';
+
+let Yelp = {
+    search(term, location, sortBy) {
+        return fetch(
+            `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
+             {headers: {
+                 Authorization: `Bearer ${apiKey}`
+                }
+            }
+        ).then(
+        response => {
+            if(response.ok) {
+               return response.json();
+            }
+            //console.log(response);
+            throw new Error('Request failed!');
+        },
+        networkError => console.log(networkError.message)).then(
+            jsonResponse => {
+                if(jsonResponse.businesses) {
+                    return jsonResponse.businesses.map(
+                        business => ({
+                               id: business.id,
+                               imageSrc: business.image_url,
+                               name: business.name,
+                               address: business.location.address1,
+                               city: business.location.city,
+                               state: business.location.state,
+                               zipcode: business.location.zipcode,
+                               category: business.categories[0].title,
+                               rating: business.rating,
+                               reviewCount: business.review_count
+                           }));
+                }
+            }
+        )
+    }
+};
+
+  export default Yelp;
+  
+
+// OAuth2.0. This method of authentication will be deprecated 3/2018
+/*const clientId = 'MnQJHtEysCNlY8sJa4cUEA';
 const clientSecret = 'wesAur4IirbXH0xF4dJhHgo0yBVzC6x7Cd6hfQfFiWSopv2NegYxCVhFnNBrZ2ph';
 let accessToken = '';
 
@@ -30,10 +75,10 @@ let Yelp = {
         return Yelp.getAccessToken().then(() => {
             return fetch(
                 `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
-                 {headers: {
-                     Authorization: `Bearer ${accessToken}`
-                    }
-                }
+                {
+                    headers : { Authorization : `Bearer ${accessToken}`, 'origin' : 'origin' }
+                  }
+
             ).then(
             response => {
                 if(response.ok) {
@@ -70,53 +115,6 @@ let Yelp = {
         }
         
 
-        }
+        }*/
 
-// apiKey does not work yet. Check back soon. Yelp API will deprecate OAuth2.0 in March.
-//const apiKey = 'heH5QuAaiiSTIVICDPVIpaUhVReJp1SijwS1WI4LHK-ccOSwuRDPkQ6JVwLdDOg5pFgDtka55iJNQ8kJLjS1Po1E8cvglV1z4sN4KdUSC-ho2vqU1J9eJ6Kj1-8xWnYx';
 
-/*let Yelp = {
-    search(term, location, sortBy) {
-        //we are prepending the cors-anywhere url so that we can bypass CORS restrictions on cross-origin requests
-        return fetch(
-            `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
-             {headers: {
-                 Authorization: `Bearer ${apiKey}`
-                }
-            }
-        ).then(
-        response => {
-            if(response.ok) {
-                console.log(response.json());
-                console.log('HEREEEEEE');
-                return response.json();
-            }
-            console.log(response);
-            throw new Error('Request failed!');
-        },
-        networkError => console.log(networkError.message)).then(
-            jsonResponse => {
-                // check if there is a businesses key in jsonResponse
-                if(jsonResponse.businesses) {
-                    jsonResponse.businesses.map(
-                        business => {
-                           return {
-                               id: business.id,
-                               imageSrc: business.image_url,
-                               name: business.name,
-                               address: business.location.address1,
-                               city: business.location.city,
-                               state: business.location.state,
-                               zipcode: business.location.zipcode,
-                               category: business.categories['title'],
-                               rating: business.rating,
-                               reviewCount: business.review_count
-                           };
-                        });
-                }
-            }
-        )
-    }
-};*/
-
-export default Yelp;

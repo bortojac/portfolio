@@ -260,14 +260,24 @@ nav > a {
     display: flex;
     flex-flow: column;
     margin: 6rem 0 3rem 0;
-    background:rgb(1, 1, 54);
+    background-color:rgba(11, 11, 105);
+    background-image: url("../projects/ravenous/src/components/SearchBar/background_search_mobile.jpg"); 
 }
 
-.project2, .project3 {
+.project2 {
+    display: flex;
+    flex-flow: column;
+    margin: 3rem 0 3rem 0;
+    background-image: url("../projects/jammming/src/components/App/background_photo_desktop.jpg"); 
+    
+}
+
+.project3 {
     display: flex;
     flex-flow: column;
     margin: 3rem 0 3rem 0;
     background: rgb(1, 1, 54);
+    
 }
 
 .aboutMe {
@@ -434,6 +444,10 @@ section > footer {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+    .project1 {
+        background-image: url("../projects/ravenous/src/components/SearchBar/background_search_desktop.jpg"); 
+        
     }
 
    #portrait {

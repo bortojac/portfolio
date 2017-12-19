@@ -2,14 +2,14 @@
 */
 body {
     margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* set up flex */
 .container {
     display: flex;
     background: #fff;
-    min-height: 10050%;vh;
+    min-height: 100vh;
     flex-flow: column;
-    font: 24px Helvetica;
 }
 /* set main content to take up as much space as it needs
 - the footer will stick at the bottom since container takes up whole window and main does not*/
@@ -29,82 +29,200 @@ main > article {
     background-color: rgba(1, 1, 40, .7);
     background-image: url("../img/manhattan.jpg");
 }
- /* nav and intro */
-article > nav {
+
+ /* intro, menu, and navigation */
+
+ .intro {
     display: flex;
-    flex-flow: row;
-    flex: initial; /* do not grow for any available space */
-    order: 1;
-    color: #000000;
-    justify-content: center;
-}
-nav {
-    transition: opacity .4s, background-color .4s;
-}
-
-h2 {
-    font-size: 1.5rem;
-}
-#projectHeading {
-    align-content: flex-end;
-    color: #fff;
-    font-weight: normal;
-}
-
-
-nav > a {
-    color: #fff;
-    margin: .5rem;
-    text-decoration: none;
-    transition: opacity .5s;
-}
-
-.tooltip {
-    display: none;
-}
-
-.intro {
-    display: flex;
-    position: relative;
+    /*position: relative;*/
     flex: auto;
     flex-flow: column;
-    align-items: center;
-
-}
-
-/* headers */
-.mainHeading {
-    display: flex;
-    flex-flow: column;
-    flex: 1; /* grow to all available space */
     justify-content: center;
     align-items: center;
-    /*margin-top: auto;
-    margin-bottom: auto;*/
+    font-weight: bold;
 }
 
-.subHeading {
+/*.mainHeading {
     display: flex;
-    flex-direction: column;
-    flex: initial;
-}
+    flex-flow: column;
+    flex: auto; grow to all available space
+    justify-content: center;
+    align-items: center;
+} */
 
-div > h1 {
-    font-size: 4rem;
+.mainHeading > h1 {
+    font-size: 3.5rem;
     margin: 1rem;
 }
 
-div > h3 {
+.mainHeading > h2 {
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: bold;
+    text-decoration: none;
 }
-/* projects */
-.projects {
+
+.menuContainer {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    bottom: 0;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: rgb(1, 1, 54); 
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.menu {
+    transition: transform 1s ease, height 1s ease, width 1s ease;
+    overflow: hidden;
+    width: 4rem;
+    height: 4rem;
+}
+
+.menu > h3 {
+    font-size: 1rem;
+}
+
+.menu.scaled {
+    transform: scale(5);
+    height: 100%;
+    width: 100%; /* want full screen on mobile*/
+}
+
+nav {
+    position: absolute;
+    display: none; 
+    z-index: 5;
+    width: 100%;
+    order: -1;
+    /* the next few are for when we use jquery to make display:flex*/
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+nav > a {
+    font-size: 3.5rem;
+    display: block;
+    color: rgb(1, 1, 54);
+    opacity: .8;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#navSocial {
+    display: none;
+    position: absolute;
+    border-top: solid rgb(1, 1, 54) 2px;
+    background-color: #fff;
+    z-index: 7;
+}
+
+#navSocial > a {
+    transition: opacity .5s;
+    margin: 1rem;
+    color: rgb(1, 1, 54);
+}
+
+
+.projectDropDown {
+    height: 0px;
+    width: 100%;
+    transition: height 700ms ease-out;
+    overflow: hidden;
+    font-size: 1.5rem;
+}
+
+#navExitButton {
+    display: none;
+    position: absolute;
+    z-index: 88;
+    margin-bottom: 1rem;
+    background-color: rgb(1, 1, 54);
+    height: 4rem;
+    width: 4rem;
+    top: 3rem;
+    margin: auto;
+    color: #fff;
+
+}
+
+/* project menu transitions */
+.swing {
+    color: rgb(1, 1, 54);
+    text-decoration: none;    
+    display: block;
+    cursor: pointer;
+    opacity: 0;
+    -moz-transition: opacity 500ms ease-in, transform 700ms ease-in;
+    -webkit-transition: opacity 500ms ease-in, transform 700ms ease-in;
+    -o-transition: opacity 500ms ease-in, transform 700ms ease-in;
+    transition: opacity 500ms ease-in, transform 700ms ease-in;
+    -moz-transform: translate3d(-200px, 0px, 0px);
+    -webkit-transform: translate3d(-200px, 0px, 0px);
+    -o-transform: translate(-200px, 0px);
+    -ms-transform: translate(-200px, 0px);
+    transform: translate3d(-200px, 0px, 0px);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.swing.active {
+    opacity: .8;
+    -moz-transition: opacity 700ms ease, transform 500ms ease;
+    -webkit-transition: opacity 700ms ease, transform 500ms ease;
+    -o-transition: opacity 700ms ease, transform 500ms ease;
+    transition: opacity 700ms ease, transform 500ms ease;
+    -moz-transform: translate3d(0px, 0px, 0px);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    -o-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+/* PROJECT PAGES */
+
+ projects {
     display: flex;
     flex-flow: column;
     background-color: #fff;
 }
+.projectButtons {
+    transition: background-color .4s, opacity .4s;
+    height: 8rem;
+    width: 8rem;
+}
 
+.projectDesc {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center; 
+}
+.projectDesc > a {
+    text-decoration: none;
+}
+.projectDesc > h1 {
+    font-size: 2rem;
+}
+
+/* fade from bottom */
 .fade-up {
     opacity: 0;
     -moz-transition: all 700ms ease-out;
@@ -140,60 +258,44 @@ div > h3 {
     height: 100vh;
 }
 
-.projectDesc, .aboutMeDesc {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-    width: 100%;
-    justify-content: center;
-    align-items: center; 
-}
-.test {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-    height: 100%;
-    align-items: center;
-    justify-content: space-evenly;
+.project1, .project2, .project3, main > article {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
 }
 
 .project1 {
     display: flex;
     flex-flow: column;
     margin: 6rem 0 3rem 0;
-    background:rgb(1, 1, 54);
+    background-color:rgb(1, 1, 54);
+    background-blend-mode: screen;
+    background-image: url("../projects/ravenous/src/components/SearchBar/background_search_mobile.jpg"); 
 }
 
-.project2, .project3 {
+.project2 {
     display: flex;
     flex-flow: column;
-    margin: 3rem 0 3rem 0;
-    background: rgb(1, 1, 54);
+    margin: 6rem 0 3rem 0;
+    background-image: url("../projects/jammming/src/components/App/background_photo_desktop.jpg"); 
+    
 }
+
+.project3 {
+    display: flex;
+    flex-flow: column;
+    margin: 6rem 0 3rem 0;
+    background: rgb(1, 1, 54);
+    
+}
+
 
 .aboutMe {
     display: flex;
     flex-flow: column;
-    margin: 3rem 0 0 0;
+    margin: 6rem 0 0 0;
     background:  rgb(1, 1, 54);
-}
-
-#aboutMeContainer {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-img {
-    width: 5rem;
-    margin: 0 2rem;
-
-}
-
-.imageContainer {
-    width: 100%;
 }
 
 div > a {
@@ -206,17 +308,25 @@ font-size: 1rem;
 padding: 1rem;
 margin: 2rem 0;
 }
+#aboutMe > article h1 {
+    margin: .5rem 0;
+}
+#aboutMeSummary {
+    text-align: left;
+    font-size: .75rem;
+    margin: 0;
+}
+ul {
+    margin: 0 0 2rem 0;
+}
 
-.round {
-    display: flex;
-    background-color: #fff;
-    color: rgb(1, 1, 54); 
-    width: 8rem;
-    height: 8rem;
-    border-radius: 4rem;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 1s, color 1s;
+li {
+    font-size: .75rem;
+    width: 75%;
+    margin: auto;
+    padding: .5rem;
+    text-align: left;
+    flex: initial;
 }
 
 section > footer {
@@ -232,126 +342,147 @@ section > footer {
 }
 
 /* footer */
-#socialLinks {
+.socialLinks {
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
+    flex: auto;
     height: 6rem;
     background-color: #fff;
     transition: background-color 1s;
 }
 
-#socialLinks > a {
+.socialLinks > a {
     color: #000000;
     margin: 1rem;
     transition: opacity .5s;
 }
 
-
-.project1, .project2, .project3, .aboutMe, main > article {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken;
+#portrait {
+    max-width: 5rem;
 }
-/* media queries to handle mobile vs desktop 
--starting at 900px we should use the sidebar instead of icon*/
+
+#contactMeLink {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity .5s;
+}
+#contactMeLink h3 {
+    margin-bottom: 0;
+}
+
+/* media query for desktop 
+# starting at 900px
+*/
 @media screen and (min-width:900px) {
-    main > article {
-        flex-flow: row;
-    }
-    article > nav {
-        flex-flow: column;
-        justify-content: center;    
-        order: 0;
-    }
-    .subHeading {
-        margin-bottom: auto;
-        }
 
-    div > h1 {
+     /* intro, menu, and navigation */
+    .mainHeading > h1 {
         font-size: 5rem;
-    }
-    div > h3 {
-        font-size: 1.2rem;
-    }
-
-    #projectHeading {
-        display: none;
-    }
-
-    nav:hover {
-        background-color: #fff;
-    }
-    .tooltip {
-        display: block;
-        visibility: hidden;
-        font-size: 1rem;
-    }
-
-    nav > a:hover .tooltip {
-        visibility: visible;
-        color: rgb(1, 1, 54);
-    }
-    nav:hover > a {
-        opacity: .3;
-        color: rgb(1, 1, 54);
     }
 
     nav > a:hover {
+        opacity: .5;
+    }
+
+    .projectDropDown {
+        font-size: 1.8rem;
+    }
+    
+    .menu {
+        width: 6rem;
+        height: 6rem;
+    }
+    
+    .menu > h3 {
+        font-size: 1.5rem;
+    }
+    
+    .menu.scaled {
+        width: 10%;
+    }
+
+    .menu:hover {
+        cursor: pointer;
+    }
+    .menu.scaled:hover {
+        cursor: default;
+    }
+    
+    .projectDropDown > a:hover {
+        opacity: .5;
+    }
+
+    .projectButtons:hover {
+        opacity: .5;
+    }
+
+    #navExitButton:hover {
+        cursor: pointer;
+        opacity: .8; 
+    }
+   
+    #navSocial:hover > a{
+        opacity: .3;
+    }
+
+    #navSocial > a:hover {
         opacity: 1;
     }
 
-    .round:hover {
-        opacity: .4;
+    /* Projects and About Me*/
+    
+    /* add parallax effect*/
+    .project1, .project2, .project3, main > article {
+        background-attachment: fixed;
+    }
+    .project1 {
+        background-image: url("../projects/ravenous/src/components/SearchBar/background_search_desktop.jpg"); 
     }
 
-    .projectDesc, .aboutMeDesc {
-        display: flex;
-        flex-flow: row;
-        flex: 1;
-        width: 100%;
-        justify-content: center;
-        align-items: center; 
+   #portrait {
+        max-width: 25rem;
     }
-    .test {
-        display: flex;
-        flex-flow: column;
-        flex: 1;
-        height: 100%;
-        align-items: center;
-        justify-content: space-evenly;
+
+    #aboutMe > article h1 {
+        margin: 1rem 0;
     }
-    .imageContainer {
-        width: 50%;
+
+    #aboutMeSummary {
+        text-align: left;
+        font-size: 1rem;
     }
-   
-    img {
-        width: 10rem;
-        margin: 0 2rem;
-    
+
+    li {
+        font-size: 1rem;
+        width: 75%;
+        margin: auto;
+        padding: .5rem;
+        text-align: left;
     }
-    #socialLinks:hover {
+
+    #contactMeLink {
+        transition: opacity .5s;
+    }
+    #contactMeLink:hover {
+        opacity: .5;
+    }
+
+    /* footer */
+    .socialLinks:hover {
         background-color: #000000;
     }
 
-    #socialLinks:hover > a {
+    .socialLinks:hover > a {
         opacity: .3;
         color: #fff;
     }
 
-    #socialLinks > a:hover {
+    .socialLinks > a:hover {
         opacity: 1;
     }
-    
-    /* add parallax to all the images */
-    .project1, .project2, .project3, main > article {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
 }
+
 
 

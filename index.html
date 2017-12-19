@@ -13,132 +13,128 @@
     <div class="container">
         <main>
             <article id="home">
-                <nav>
-                    <a href="#project1">
-                        <i class="fa fa-circle-o fa-2x"></i>
-                        <span class="tooltip">Project 1</span>
-                    </a>
-                    <a href="#project2">
-                        <i class="fa fa-circle-o fa-2x"></i>
-                        <span class="tooltip">Project 2</span>
-                    </a>
-                    <a href="#project3">
-                        <i class="fa fa-circle-o fa-2x"></i>
-                        <span class="tooltip">Project 3</span>
-                    </a>
-                </nav>
                 <section class="intro">
                     <div class="mainHeading">
                         <h1>Jack Borto</h1>
-                        <h3>Chicago -> New York</h3>
+                        <h2>New York, NY</h2>
                     </div>
-                    <div class="subHeading">
-                        <h2 id="projectHeading">Projects</h2>
-                        <i id="angleDown" class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+                    <nav>
+                        <a id="projectLink">Projects</a>
+                        <div class="projectDropDown">
+                            <a class="swing" href="#project1">Ravenous</a>
+                            <a class="swing" href="#project2">Jammming (Coming Soon)</a>
+                            <a class="swing" href="#project3">Project 3 (Coming Soon)</a>
+                        </div>
+                        <a href="#aboutMe">About Me</a>
+                    </nav>
+                    <div class="menuContainer">
+                            <div id="menuButton" class="round menu">
+                                <h3>Menu</h3>
+                            </div>
+                            <div id="navExitButton" class="round"><i class="fa fa-close fa-2x"></i></div>
+                            <footer id="navSocial">
+                                <a href="https://www.linkedin.com/in/jack-borto-b2686199" target="_blank">
+                                    <i class="fa fa-linkedin fa-3x"></i>
+                                </a>
+                                <a href="https://github.com/bortojac" target="_blank">
+                                    <i class="fa fa-github fa-3x"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope-o fa-3x"></i>
+                                </a>
+                            </footer>
+                            <i id="angleDown" class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
                     </div>
                 </section>
             </article>
             <div class="projects">
                 <section id="project1" class="project1">
-                        <article class="projectDesc animateThese fade-up">
-                                <div class="test">
-                                    <h2>Project 1</h2>
-                                    <a href="">
-                                        <div class="round">
-                                            <h3>Project 1</h3>
-                                        </div>
-                                    </a>
-                                </div>
-                                <aside>
-                                    <p>This is the place where I'll put a summary about whatever the project the link below goes to.</p>
-                                </aside>
-                            </article>
+                    <article class="projectDesc animateThese fade-up">
+                        <h1>Ravenous</h1>
+                        <p>Ravenous calls the Yelp.com business API and allows users to search for local businesses by ranking, reviews, and relevance. This project was created in conjuction with an online course in React.JS.</p>
+                        <a href="https://ravenous.now.sh" target="_blank">
+                            <div class="round projectButtons">
+                                <h3>Ravenous</h3>
+                            </div>
+                        </a>
+                    </article>
                     <footer>
                         <a href="#home" class="backHome">
-                            <i class="fa fa-arrow-up"></i>
+                            <i class="fa fa-arrow-up fa-2x"></i>
                         </a>
                     </footer>
                 </section>
                 <section id="project2" class="project2">
-                        <article class="projectDesc animateThese fade-up">
-                                <div class="test">
-                                    <h2>Project 2</h2>
-                                    <a href="">
-                                        <div class="round">
-                                            <h3>Project 2</h3>
-                                        </div>
-                                    </a>
-                                </div>
-                                <aside>
-                                    <p>This is the place where I'll put a summary about whatever the project the link below goes to.</p>
-                                </aside>
-                            </article>
+                    <article class="projectDesc animateThese fade-up">
+                        <h1>Jammming</h1>
+                        <p>Jammming uses the Spotify API and allows users to search for songs, artists, and albums, as well as create playlists. This project is under development and will be available soon.</p>
+                        <a href="">
+                            <div class="round projectButtons">
+                                <h3>Jammming</h3>
+                            </div>
+                        </a>
+                    </article>
                     <footer>
                         <a href="#home" class="backHome">
-                            <i class="fa fa-arrow-up"></i>
+                            <i class="fa fa-arrow-up fa-2x"></i>
                         </a>
                     </footer>
                 </section>
                 <section id="project3" class="project3">
                     <article class="projectDesc animateThese fade-up">
-                        <div class="test">
-                            <h2>Project 3</h2>
-                            <a href="">
-                                <div class="round">
-                                    <h3>Project 3</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <aside>
-                            <p>This is the place where I'll put a summary about whatever the project the link below goes to.</p>
-                        </aside>
+                        <h1>Project 3</h1>
+                        <p>This is the place where I'll put a summary about whatever the project the link below goes to.</p>
+                        <a href="">
+                            <div class="round projectButtons">
+                                <h3>Project 3</h3>
+                            </div>
+                        </a>
                     </article>
                     <footer>
                         <a href="#home" class="backHome">
-                            <i class="fa fa-arrow-up"></i>
+                            <i class="fa fa-arrow-up fa-2x"></i>
                         </a>
                     </footer>
                 </section>
                 <section id="aboutMe" class="aboutMe">
-                    <article class="aboutMeDesc animateThese fade-up">
-                        <div class="imageContainer">
-                            <img src="img/portrait-2.jpg" alt="self-portrait2">
-                            <img src="img/ladyLiberty.jpg" alt="Statue-of-Liberty">
-                            <img src="img/brooklynView.jpg" alt="view-from-brooklyn">
-                            <img src="img/portrait.jpg" alt="self-portrait">
-                        </div>
-                        <div id="aboutMeContainer">
-                        <h2>About Me</h2>
-                        <p>This is the place where I'll put a summary about myself.</p>
-                        <a href="">
-                            <div class="round">
-                                <h3>Contact Me</h3>
-                            </div>
-                        </a>
-                    </div>
+                    <article class="projectDesc animateThese fade-up">
+                            <img id="portrait" src="img/portrait.jpg" alt="self-portrait">
+                            <h1>About Me</h1>
+                            <p id="aboutMeSummary">I am currently a New York based Data Analyst with 1.5 years of client-facing web developement experience. I am devoting my after-work hours to web development and am looking for full-time web development positions. Throughout work experience and self-study, I have developed skills in Reactive Programming, R, HTML, CSS, Javascript, jQuery, SQL, Python, and SAS. I am currently enrolled in a course to learn React.JS, and projects in this portfolio are forth-coming. Projects I have worked on include:</p>
+                                <ul>
+                                    <li>Predictive Modeling Claims Application with SQLite persistent storage and What-If analysis.</li>
+                                    <li>Workers' Compensation Claims Monitoring Application</li>
+                                    <li>Automation of Reserving Data Preparation using R, Python, and SAS</li>
+                                </ul>
+                            
+                            <a id="contactMeLink" href="#socialFooter">
+                                <div>
+                                    <h3>Contact Me</h3>
+                                    <i class="fa fa-angle-down fa-2x"></i>
+                                </div>
+                            </a>
                     </article>
                     <footer>
                         <a href="#home" class="backHome">
-                            <i class="fa fa-arrow-up"></i>
+                            <i class="fa fa-arrow-up fa-2x"></i>
                         </a>
                     </footer>
                 </section>
             </div>
         </main>
-        <footer id="socialLinks">
+        <footer id="socialFooter" class="socialLinks">
             <a href="https://www.linkedin.com/in/jack-borto-b2686199" target="_blank">
-                <i class="fa fa-linkedin fa-2x"></i>
+                <i class="fa fa-linkedin fa-3x"></i>
             </a>
             <a href="https://github.com/bortojac" target="_blank">
-                <i class="fa fa-github fa-2x"></i>
+                <i class="fa fa-github fa-3x"></i>
             </a>
             <a href="">
-                <i class="fa fa-envelope-o fa-2x"></i>
+                <i class="fa fa-envelope-o fa-3x"></i>
             </a>
         </footer>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/constr.js"></script>
     <script src="js/custom.js"></script>

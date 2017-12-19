@@ -1,4 +1,4 @@
-// this creates a constructor function VHChromeFix
+// this creates a constructor function VHChromeFix. On Chrome iOS the scroll behaves badly due to vh calculations with/without search bar.
 var VHChromeFix = function(selectors) {
     var self = this;
     var userAgent = navigator.userAgent.toLowerCase();

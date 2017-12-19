@@ -49,6 +49,7 @@ main > article {
     justify-content: center;
     align-items: center;
 } */
+
 .mainHeading > h1 {
     font-size: 3.5rem;
     margin: 1rem;
@@ -159,6 +160,7 @@ nav > a {
 
 }
 
+/* project menu transitions */
 .swing {
     color: rgb(1, 1, 54);
     text-decoration: none;    
@@ -256,18 +258,26 @@ nav > a {
     height: 100vh;
 }
 
+.project1, .project2, .project3, main > article {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
 .project1 {
     display: flex;
     flex-flow: column;
     margin: 6rem 0 3rem 0;
-    background-color:rgba(11, 11, 105);
+    background-color:rgb(1, 1, 54);
+    background-blend-mode: screen;
     background-image: url("../projects/ravenous/src/components/SearchBar/background_search_mobile.jpg"); 
 }
 
 .project2 {
     display: flex;
     flex-flow: column;
-    margin: 3rem 0 3rem 0;
+    margin: 6rem 0 3rem 0;
     background-image: url("../projects/jammming/src/components/App/background_photo_desktop.jpg"); 
     
 }
@@ -275,15 +285,16 @@ nav > a {
 .project3 {
     display: flex;
     flex-flow: column;
-    margin: 3rem 0 3rem 0;
+    margin: 6rem 0 3rem 0;
     background: rgb(1, 1, 54);
     
 }
 
+
 .aboutMe {
     display: flex;
     flex-flow: column;
-    margin: 3rem 0 0 0;
+    margin: 6rem 0 0 0;
     background:  rgb(1, 1, 54);
 }
 
@@ -351,13 +362,6 @@ section > footer {
     transition: opacity .5s;
 }
 
-.project1, .project2, .project3, main > article {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken;
-}
-
 #portrait {
     max-width: 5rem;
 }
@@ -365,14 +369,18 @@ section > footer {
 #contactMeLink {
     color: #fff;
     text-decoration: none;
+    transition: opacity .5s;
 }
 #contactMeLink h3 {
     margin-bottom: 0;
 }
-/* media queries to handle mobile vs desktop 
--starting at 900px we should use the sidebar instead of icon*/
+
+/* media query for desktop 
+# starting at 900px
+*/
 @media screen and (min-width:900px) {
 
+     /* intro, menu, and navigation */
     .mainHeading > h1 {
         font-size: 5rem;
     }
@@ -417,19 +425,6 @@ section > footer {
         cursor: pointer;
         opacity: .8; 
     }
-
-    .socialLinks:hover {
-        background-color: #000000;
-    }
-
-    .socialLinks:hover > a {
-        opacity: .3;
-        color: #fff;
-    }
-
-    .socialLinks > a:hover {
-        opacity: 1;
-    }
    
     #navSocial:hover > a{
         opacity: .3;
@@ -438,24 +433,25 @@ section > footer {
     #navSocial > a:hover {
         opacity: 1;
     }
-    /* add parallax to all the images */
+
+    /* Projects and About Me*/
+    
+    /* add parallax effect*/
     .project1, .project2, .project3, main > article {
         background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     .project1 {
         background-image: url("../projects/ravenous/src/components/SearchBar/background_search_desktop.jpg"); 
-        
     }
 
    #portrait {
         max-width: 25rem;
     }
+
     #aboutMe > article h1 {
         margin: 1rem 0;
     }
+
     #aboutMeSummary {
         text-align: left;
         font-size: 1rem;
@@ -469,6 +465,26 @@ section > footer {
         text-align: left;
     }
 
+    #contactMeLink {
+        transition: opacity .5s;
+    }
+    #contactMeLink:hover {
+        opacity: .5;
+    }
+
+    /* footer */
+    .socialLinks:hover {
+        background-color: #000000;
+    }
+
+    .socialLinks:hover > a {
+        opacity: .3;
+        color: #fff;
+    }
+
+    .socialLinks > a:hover {
+        opacity: 1;
+    }
 }
 
 

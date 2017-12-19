@@ -30,7 +30,7 @@ $(document).ready(
 		/*trigger a scroll event as soon as the DOM is ready. We do this so that if any of the elements which should be animated are within the viewport, they will be detected as in view and the animation applied as if we had scrolled.*/
 		$window.trigger('scroll');
 
-		// animate the scroll	
+		// animate the scroll on click to links with #	
 		$('a[href^="#"]').on('click', function (e) {
 			e.preventDefault();
 			/*this.hash reads the href attribute of this, and gets the part of the URL beginning with # */
@@ -56,17 +56,14 @@ $(document).ready(
 				console.log(navSocialHeight);
 				$('#navExitButton').fadeIn(700).css(
 					{
-					//'bottom': navSocialHeight,
 					'display': 'flex'
 					}
 				);
-				//$('#navExitButton').fadeIn(800).css('display', 'flex');
 		});
 
 		$('#navExitButton').click(function() {
 			$('.menu').removeClass('scaled');
 			$('nav').fadeOut(200, function () {
-				//$('.menuContainer').css('justify-content', 'flex-end');
 			});				
 			$('.menu > h3').delay(700).show(0);
 			$('#navSocial').fadeOut(200);
@@ -102,7 +99,6 @@ $(document).ready(
 
 		// email button
 		$('.fa-envelope-o').click(function() {
-			console.log('worked');
 			window.open('mailto:jack.w.borto@gmail.com');
 		});
 

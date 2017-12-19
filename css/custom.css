@@ -328,9 +328,6 @@ li {
     text-align: left;
     flex: initial;
 }
-test {
-    flex: initial;
-}
 
 section > footer {
     display: flex;
@@ -486,5 +483,6 @@ section > footer {
         opacity: 1;
     }
 }
+
 
 

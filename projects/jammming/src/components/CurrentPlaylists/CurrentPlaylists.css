@@ -1,0 +1,33 @@
+.playlist
+ {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #fff;
+    border-bottom: 1px solid rgba(256, 256, 256, 0.8);
+    transition: color .7s, background-color .7s;
+  }
+  
+  .playlist:hover {
+      
+      color: rgb(1, 12, 63);
+      background-color: #fff;
+
+  }
+  .playlist-information {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 72px;
+  }
+  
+  .playlist-information h3 {
+    margin-bottom: .22rem;
+  }
+  
+  .playlist-information p {
+    font-size: .83rem;
+    font-weight: 300;
+    color: rgba(256, 256, 256, 0.8);
+  }

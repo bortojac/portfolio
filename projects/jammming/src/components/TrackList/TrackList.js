@@ -8,8 +8,6 @@ class TrackList extends React.Component {
         //console.log(tracks);
         return (
         <div className="TrackList">
-        {console.log(tracks)
-        }
         {tracks.map(track => {
             //console.log(track);
             //console.log(track[0]);

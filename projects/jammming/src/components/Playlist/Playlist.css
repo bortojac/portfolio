@@ -21,7 +21,7 @@
     color: #fff;
   }
   
-  .Playlist-save {
+  .Playlist-button {
     cursor: pointer;
     width: 10rem;
     padding: .77rem 0;
@@ -41,6 +41,45 @@
       width: 0px;
       background: transparent;
   }
+
+  /* react modal */
+  .ReactModal__Overlay {
+    opacity: 0;
+  }
+  
+  .ReactModal__Overlay--after-open {
+    opacity: .9;
+    transition: all 200ms ease-in-out;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+
+  .ReactModal__Content {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    /*-webkit-transform: translate3d(0px,75px,0px);
+    transform: translate3d(0px,75px,0px);*/
+    
+  }
+  
+  .ReactModal__Content--after-open {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    /*-webkit-transform: translate3d(0px,0px,0px);
+    transform: translate3d(0px,0px,0px);*/
+    transition: all 200ms ease-in-out;
+  }
+  
+  .ReactModal__Content--before-close {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    /*-webkit-transform: translate3d(0px,75px,0px);
+    transform: translate3d(0px,75px,0px);*/
+    transition: all 200ms ease-in-out;
+  }
+  
   
   @media only screen and (max-width: 1020px) {
     .Playlist {

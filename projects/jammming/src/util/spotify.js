@@ -5,7 +5,7 @@
 let accessToken = '';
 let expireTime = '';
 const clientID = '889519bd940a428087d936a46da18350';
-const redirectURI = 'https://jammming.now.sh';
+const redirectURI = 'http://localhost:3000/';
 const spotifyURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&redirect_uri=${redirectURI}&scope=playlist-modify-public&response_type=token`;
 
 
@@ -108,8 +108,60 @@ let Spotify = {
             )
          });
         });
+    },
+
+    loadPlaylist() {
+        //if(!playlistName || trackURIs.length===0 || !trackURIs) return;
+        let token = accessToken;
+        let currentPlaylists = [];
+        let headers = {
+            Authorization: `Bearer ${token}`
+        };
+        let userID = '';
+       return fetch('https://api.spotify.com/v1/me',
+         {headers: headers})
+         .then(response => response.json())
+         .then(jsonResponse => {
+            console.log(jsonResponse.id);
+            console.log(token);
+            userID = jsonResponse.id
+        return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {headers:headers})
+    })
+    .then(response => response.json())
+    .then(jsonResponse => {
+        return jsonResponse.items.map(
+                   playlist => ({
+                        name: playlist.name,
+                        id: playlist.id
+                })
+             );
+    });
     }
 
+    // this is a test for the get request to get a list of playlists from the user
+    /*test() {
+        fetch(`https://api.spotify.com/v1/users/bortojac/playlists`,
+        {
+            headers: {
+            'Authorization': `Bearer ${accessToken}`
+            }//,
+            //body: JSON.stringify({
+           //     name: playlistName
+            })
+       .then(response => {
+           return response.json();
+        //response.json()
+    })
+       .then(jsonResponse =>  {
+           console.log(jsonResponse.items); 
+           let temp = jsonResponse.items.map(playlist => ({
+                   name: playlist.name,
+                   id: playlist.id
+           })
+        );
+        return temp;
+       })
+    }*/
 };
 
 export default Spotify;

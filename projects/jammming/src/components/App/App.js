@@ -6,19 +6,26 @@ import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/spotify';
 
 Spotify.getAccessToken();
+//console.log(Spotify.loadPlaylist());
+
+
+//Spotify.test();
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchResults: [],
       playlistName: '',
-      playlistTracks: []
+      playlistTracks: [],
+      currentPlaylists: []
   };
   this.addTrack = this.addTrack.bind(this);
   this.removeTrack = this.removeTrack.bind(this);
   this.updatePlaylistName = this.updatePlaylistName.bind(this);
   this.savePlaylist = this.savePlaylist.bind(this);
   this.search = this.search.bind(this);
+  this.loadPlaylist = this.loadPlaylist.bind(this);
   }
 
   addTrack(track) {
@@ -29,6 +36,13 @@ class App extends Component {
         return {playlistTracks: prevState.playlistTracks.concat(track)};
       })
     }
+  }
+  
+  loadPlaylist() {
+    Spotify.loadPlaylist().then(playlists => {
+      console.log(playlists);
+      this.setState({currentPlaylists: playlists});
+    });
   }
 
   removeTrack(track) {
@@ -79,6 +93,8 @@ class App extends Component {
      onRemove={this.removeTrack}
      playlistName={this.state.playlistName}
      playlistTracks={this.state.playlistTracks}
+     loadPlaylist={this.loadPlaylist}
+     currentPlaylists={this.state.currentPlaylists} 
      />
     </div>
   </div>

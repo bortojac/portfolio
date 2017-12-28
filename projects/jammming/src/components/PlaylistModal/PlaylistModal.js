@@ -3,11 +3,9 @@ import Modal from 'react-modal';
 import CurrentPlaylists from '../CurrentPlaylists/CurrentPlaylists';
 import './PlaylistModal.css';
 
+Modal.setAppElement('#root');
+
 class PlaylistModal extends React.Component {
-    constructor(props) {
-        super(props);
-        
-    }
 
     render() {
         return (
@@ -23,7 +21,11 @@ class PlaylistModal extends React.Component {
         >
         <CurrentPlaylists
         loadPlaylists={this.props.loadPlaylists}
-        currentPlaylists={this.props.currentPlaylists}/>
+        currentPlaylists={this.props.currentPlaylists}
+        getPlaylistTracks={this.props.getPlaylistTracks}
+        closeModal={this.props.closeModal}
+        onNameChange={this.props.onNameChange}
+        />
         
         </Modal>
     </div>

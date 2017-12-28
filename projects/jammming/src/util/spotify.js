@@ -70,50 +70,73 @@ let Spotify = {
     },
 
     savePlaylist(playlistName, trackURIs) {
-        if(!playlistName || trackURIs.length===0 || !trackURIs) return;
+
         let token = accessToken;
         let headers = {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
-        };
+            'Content-Type':'application/json'
+        }; 
         let userID = '';
         let playlistID = '';
-        fetch('https://api.spotify.com/v1/me',
-         {headers: headers})
-         .then(response => response.json())
-         .then(jsonResponse => userID = jsonResponse.id)
-         .then(() => {
-             //this post request makes the playlist
-            fetch(`https://api.spotify.com/v1/users/${userID}/playlists`,
-            {
-                method: 'POST',
-                headers: headers,
-                body: JSON.stringify({
-                    name: playlistName
-                })
-            }
-           )
-           .then(response => response.json())
-           .then(jsonResponse => playlistID = jsonResponse.id)
-           .then(() => {
-             //this post request adds tracks to the playlist
-             fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`,
-             {
-                 method: 'POST',
-                 headers: headers,
-                 body: JSON.stringify({
-                 uris: trackURIs
-                })
+
+        // if the playlist is there, we need to ask if they want to overwrite, and then act accordingly
+            // first step, lets overwrite
+            // second step, make it so that they give consent to overwrite
+        if(!playlistName || trackURIs.length===0 || !trackURIs) {
+            return}
+            fetch('https://api.spotify.com/v1/me',
+            {headers: headers})
+            .then(response => response.json())
+            .then(jsonResponse => userID = jsonResponse.id)
+            .then(() => {
+                //this post request makes the playlist
+               fetch(`https://api.spotify.com/v1/users/${userID}/playlists`,
+               {
+                   method: 'POST',
+                   headers: headers,
+                   body: JSON.stringify({
+                       name: playlistName
+                   })
+               }
+              )
+              .then(response => response.json())
+              .then(jsonResponse => playlistID = jsonResponse.id)
+              .then(() => {
+                //this post request adds tracks to the playlist
+                fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`,
+                {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({
+                    uris: trackURIs
+                   })
+                   }
+               )
+            });
+           });
+
+            /*fetch('https://api.spotify.com/v1/me',
+            {headers: headers})
+            .then(response => response.json())
+            .then(jsonResponse => {
+                
+                userID = jsonResponse.id;
+                 //this put request updates tracks in the playlist
+                return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, 
+                {
+                    method: 'PUT',
+                    headers: headers,
+                    body: JSON.stringify({
+                        uris: trackURIs
+                    })
                 }
-            )
-         });
-        });
+            );
+        });*/
     },
 
     loadPlaylist() {
         //if(!playlistName || trackURIs.length===0 || !trackURIs) return;
         let token = accessToken;
-        let currentPlaylists = [];
         let headers = {
             Authorization: `Bearer ${token}`
         };
@@ -136,6 +159,35 @@ let Spotify = {
                 })
              );
     });
+    },
+
+    getPlaylistTracks(playlistID) {
+    
+        let headers = {Authorization: `Bearer ${accessToken}`};
+        let userID = '';
+
+        // make a request to get the userID and use that with the playlistID argument to get the tracks
+        return fetch('https://api.spotify.com/v1/me',{headers: headers})
+        .then(response => response.json())
+        .then(jsonResponse => {
+            userID = jsonResponse.id;
+            return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, {headers: headers});
+        })
+        .then(response => response.json())
+        .then(jsonResponse => {
+            if(jsonResponse.items) {
+                //console.log(jsonResponse.items);
+                return jsonResponse.items.map(
+                    item => ({
+                        id: item.track.id,
+                        name: item.track.name,
+                        artist: item.track.artists[0].name,
+                        album: item.track.album.name,
+                        uri: item.track.uri
+                    })
+                );
+            }
+            });
     }
 
     // this is a test for the get request to get a list of playlists from the user

@@ -5,18 +5,15 @@ import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/spotify';
 
+// get the accessToken
 Spotify.getAccessToken();
-//console.log(Spotify.loadPlaylist());
-
-
-//Spotify.test();
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchResults: [],
-      playlistName: '',
+      playlistName: 'New Playlist',
       playlistTracks: [],
       currentPlaylists: []
   };
@@ -26,6 +23,7 @@ class App extends Component {
   this.savePlaylist = this.savePlaylist.bind(this);
   this.search = this.search.bind(this);
   this.loadPlaylist = this.loadPlaylist.bind(this);
+  this.getPlaylistTracks = this.getPlaylistTracks.bind(this);
   }
 
   addTrack(track) {
@@ -40,9 +38,18 @@ class App extends Component {
   
   loadPlaylist() {
     Spotify.loadPlaylist().then(playlists => {
-      console.log(playlists);
+      //console.log(playlists);
       this.setState({currentPlaylists: playlists});
     });
+  }
+
+  getPlaylistTracks(playlistID) {
+    
+    // set the tracks of the user's selected playlist to the state of playlistTracks. 
+    Spotify.getPlaylistTracks(playlistID)
+    .then(tracks => this.setState({playlistTracks: tracks}));
+    //console.log(this.state.playlistTracks);
+
   }
 
   removeTrack(track) {
@@ -52,12 +59,14 @@ class App extends Component {
   }
 
   updatePlaylistName(name) {
+    console.log(name);
     this.setState({playlistName: name});
+    //console.log(this.state.playlistName);
   }
 
   savePlaylist() {
     let trackURIs = this.state.playlistTracks.map(track => track.uri);
-    console.log(trackURIs);
+    //console.log(trackURIs);
     Spotify.savePlaylist(this.state.playlistName, trackURIs);
     
   }
@@ -95,6 +104,7 @@ class App extends Component {
      playlistTracks={this.state.playlistTracks}
      loadPlaylist={this.loadPlaylist}
      currentPlaylists={this.state.currentPlaylists} 
+     getPlaylistTracks={this.getPlaylistTracks}
      />
     </div>
   </div>

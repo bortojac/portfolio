@@ -9,8 +9,9 @@ class Track extends React.Component {
     }
 
     addTrack() {
-        this.props.onAdd(this.props.track); 
+      this.props.onAdd(this.props.track); 
     }
+
     removeTrack() {
         this.props.onRemove(this.props.track);
     }
@@ -19,13 +20,23 @@ class Track extends React.Component {
         if(this.props.isRemoval) {
             return (<a onClick={this.removeTrack} className='Track-action'>-</a>);
         } else {
-            return (<a onClick={this.addTrack} className='Track-action'>+</a>);
+            //console.log(this.props.playlistTracks.map(playlistTrack => playlistTrack.id));
+            // if the track is already in the playlist, don't put a + sign. For now we are not allowing duplicate tracks.
+            // It makes it difficult to remove tracks separately by their ID.
+            // Creating a unique key is probably outside the scope of this project, given the limited use cases for duplicates
+            if(this.props.playlistTracks.map(playlistTrack => playlistTrack.id).includes(this.props.track.id)) {
+                return (<a onClick={this.addTrack} className='Track-action'></a>);
+            }
+            return (<a onClick={this.addTrack} className='Track-action'>+</a>)
+            
         }
     }
 
     render() {
         return (
             <div className="Track">
+                    {console.log(this.props.currentTracksInPlaylist)
+                    }
             <div className="Track-information">
               <h3>{this.props.track.name}</h3>
               <p>{`${this.props.track.artist} | ${this.props.track.album}`}</p>

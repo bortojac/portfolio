@@ -29,13 +29,15 @@ class App extends Component {
   addTrack(track) {
     //console.log(track.name);
     // if the track isn't already in the playlist, add it.
-    if(this.state.playlistTracks.filter(playlistTrack => playlistTrack.id !== track.id) !== track.id) {
+    if(!this.state.playlistTracks.map(playlistTrack => playlistTrack.id).includes(track.id)) {
       this.setState((prevState) => {
         return {playlistTracks: prevState.playlistTracks.concat(track)};
       })
-    }
+
+    
   }
-  
+}
+
   loadPlaylist() {
     Spotify.loadPlaylist().then(playlists => {
       //console.log(playlists);
@@ -59,7 +61,7 @@ class App extends Component {
   }
 
   updatePlaylistName(name) {
-    console.log(name);
+    //console.log(name);
     this.setState({playlistName: name});
     //console.log(this.state.playlistName);
   }
@@ -95,7 +97,9 @@ class App extends Component {
     <div className="App-playlist">
     <SearchResults 
      onAdd={this.addTrack}
-     searchResults={this.state.searchResults}/>
+     searchResults={this.state.searchResults}
+     playlistTracks={this.state.playlistTracks}
+     />
     <Playlist
      onSave={this.savePlaylist}
      onNameChange={this.updatePlaylistName}

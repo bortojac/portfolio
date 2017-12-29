@@ -15,8 +15,8 @@ class CurrentPlaylists extends React.Component {
         //console.log(playlistObjs);
         return (
             <div className="">
-            <h1>Select a Playlist to edit</h1>
-            <ul className="">
+            <h1 className="modalContentHeader">Select a Playlist to edit</h1>
+            <ul className="playlists">
               {playlistObjs.map(
                     playlistObj => {
                         return <UserPlaylist 

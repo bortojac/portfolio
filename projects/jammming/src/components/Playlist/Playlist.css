@@ -30,11 +30,11 @@
     background-color: #6c41ec;
     text-align: center;
     font-size: .83rem;
-    transition: background-color .25s;
+    transition: background-color 200ms;
   }
   
-  .Playlist-save:hover {
-    background-color: rgba(108, 65, 233, .7);
+  .Playlist-button:hover {
+    background-color: rgba(1, 12, 63, 0.7);;
   }
   
   ::-webkit-scrollbar {
@@ -42,43 +42,6 @@
       background: transparent;
   }
 
-  /* react modal */
-  .ReactModal__Overlay {
-    opacity: 0;
-  }
-  
-  .ReactModal__Overlay--after-open {
-    opacity: .9;
-    transition: all 200ms ease-in-out;
-  }
-
-  .ReactModal__Overlay--before-close {
-    opacity: 0;
-  }
-
-  .ReactModal__Content {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    /*-webkit-transform: translate3d(0px,75px,0px);
-    transform: translate3d(0px,75px,0px);*/
-    
-  }
-  
-  .ReactModal__Content--after-open {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    /*-webkit-transform: translate3d(0px,0px,0px);
-    transform: translate3d(0px,0px,0px);*/
-    transition: all 200ms ease-in-out;
-  }
-  
-  .ReactModal__Content--before-close {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    /*-webkit-transform: translate3d(0px,75px,0px);
-    transform: translate3d(0px,75px,0px);*/
-    transition: all 200ms ease-in-out;
-  }
   
   
   @media only screen and (max-width: 1020px) {

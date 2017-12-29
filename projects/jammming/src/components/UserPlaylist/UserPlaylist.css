@@ -1,0 +1,19 @@
+.modalListItem
+{
+   font-size: 1.5rem;
+   color: rgb(1, 12, 63);
+   border-bottom: .2rem solid rgba(256, 256, 256, 0.8);
+   transition: color .7s, background-color .7s;
+   width: 100%;
+   padding: 1rem;
+   transition: opacity 200ms;
+ }
+ 
+ .modalListItem:hover {
+     
+     color: rgb(1, 12, 63);
+     /*background-color: #fff;*/
+     opacity: .4;
+     cursor: pointer;
+
+ }

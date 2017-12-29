@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './UserPlaylist.css';
 
 class UserPlaylist extends React.Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class UserPlaylist extends React.Component {
     }
     render() {
         return (
-            <li onClick={this.handleClick} className="playlist">
+            <li onClick={this.handleClick} className="modalListItem">
             {//console.log(this.props.playlistObj.id)
             }
               <h3>{this.props.playlistObj.name}</h3>

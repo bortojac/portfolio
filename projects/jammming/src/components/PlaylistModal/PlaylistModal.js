@@ -17,7 +17,7 @@ class PlaylistModal extends React.Component {
             overlayClassName="myOverlay"
         //style={customStyles}
         contentLabel="Example Modal"
-        closeTimeoutMS={200}
+        closeTimeoutMS={300}
         >
         <CurrentPlaylists
         loadPlaylists={this.props.loadPlaylists}

@@ -19,6 +19,7 @@ class PlaylistModal extends React.Component {
         contentLabel="Example Modal"
         closeTimeoutMS={300}
         >
+
         <CurrentPlaylists
         loadPlaylists={this.props.loadPlaylists}
         currentPlaylists={this.props.currentPlaylists}

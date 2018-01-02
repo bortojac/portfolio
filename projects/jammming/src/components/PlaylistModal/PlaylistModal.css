@@ -18,6 +18,8 @@
     -webkit-transform: translate(-50%,-50%) scale(0) ;
     transform: translate(-50,-50%) scale(0) ;
     transition: all 300ms ease-in-out;
+    overflow: scroll;
+    height: 25rem;
         /*-webkit-transform: translate3d(0px,75px,0px);
     transform: translate3d(0px,75px,0px);*/
 }

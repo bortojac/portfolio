@@ -7,12 +7,15 @@ class Playlist extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalIsOpen: false
+            modalIsOpen: false,
+            saved: false
         };
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.modalOpenFuncs = this.modalOpenFuncs.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+        this.renderCheckMark = this.renderCheckMark.bind(this);
     }
 
             
@@ -25,6 +28,8 @@ class Playlist extends React.Component {
 
     handleNameChange(event) {
         this.props.onNameChange(event.target.value);
+        this.setState({saved: false});
+
     }
 
     modalOpenFuncs() {
@@ -34,6 +39,36 @@ class Playlist extends React.Component {
         //console.log(this.props.currentPlaylists)
         this.openModal();
     }    
+    handleSave() {
+        // save to spotify
+        this.props.onSave();
+        // change the saved state to render the checkmark
+        this.setState({saved: true});
+
+    }
+
+    renderCheckMark() {
+        // if saved state is true, render the checkmark
+        if(this.state.saved) {
+        return (
+            <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+            <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>);
+        } 
+        else {
+            return 'SAVE PLAYLIST';
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        // if the tracks in the playlist change do not render the checkmark
+        if(nextProps.playlistTracks !== this.props.playlistTracks) {
+            
+            this.setState({saved: false})
+        }
+
+    }
 
     
     render() {
@@ -44,7 +79,7 @@ class Playlist extends React.Component {
              {//console.log(this.props.playlistTracks)
              }
             <TrackList onRemove={this.props.onRemove} tracks={this.props.playlistTracks} isRemoval={true}/>
-            <a onClick={this.props.onSave} className="Playlist-button">SAVE TO SPOTIFY</a>
+            <a onClick={this.handleSave} className="Playlist-button">{this.renderCheckMark()}</a>
             <a onClick={this.modalOpenFuncs} className="Playlist-button">LOAD A PLAYLIST</a>
             <PlaylistModal 
             loadPlaylist={this.props.loadPlaylist}

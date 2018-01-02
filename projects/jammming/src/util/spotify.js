@@ -5,7 +5,7 @@
 let accessToken = '';
 let expireTime = '';
 const clientID = '889519bd940a428087d936a46da18350';
-const redirectURI = 'http://localhost:3000/';
+const redirectURI = 'https://jammming.now.sh';
 const spotifyURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&redirect_uri=${redirectURI}&scope=playlist-modify-public&response_type=token`;
 
 
@@ -93,17 +93,17 @@ let Spotify = {
             .then(response => response.json())
             .then(jsonResponse => {
                 let currentPlaylists = jsonResponse.items.map(playlist => ({name: playlist.name, id: playlist.id }));
-                console.log(jsonResponse);
-                console.log(currentPlaylists);
+                //console.log(jsonResponse);
+                //console.log(currentPlaylists);
                 // if there is a playlist under the same name, update with PUT.
                 if (currentPlaylists.map(obj => obj.name).includes(playlistName)) {
 
                     let playlistID = currentPlaylists.filter(obj => {
                        return obj.name === playlistName
                     })[0].id;
-                    console.log(playlistID);
                     //console.log(playlistID);
-                    console.log('PUT');
+                    //console.log(playlistID);
+                    //console.log('PUT');
                     fetch(
                         `https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`,
                         {
@@ -156,13 +156,14 @@ let Spotify = {
          {headers: headers})
          .then(response => response.json())
          .then(jsonResponse => {
-            console.log(jsonResponse.id);
-            console.log(token);
+            //console.log(jsonResponse.id);
+            //console.log(token);
             userID = jsonResponse.id
         return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {headers:headers})
     })
     .then(response => response.json())
     .then(jsonResponse => {
+        //console.log(jsonResponse);
         return jsonResponse.items.map(
                    playlist => ({
                         name: playlist.name,

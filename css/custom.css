@@ -258,14 +258,14 @@ nav > a {
     height: 100vh;
 }
 
-.project1, .project2, .project3, main > article {
+.ravenous, .jammming, .project3, main > article {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
 }
 
-.project1 {
+.ravenous {
     display: flex;
     flex-flow: column;
     margin: 6rem 0 3rem 0;
@@ -274,7 +274,7 @@ nav > a {
     background-image: url("../projects/ravenous/src/components/SearchBar/background_search_mobile.jpg"); 
 }
 
-.project2 {
+.jammming {
     display: flex;
     flex-flow: column;
     margin: 6rem 0 3rem 0;
@@ -434,10 +434,10 @@ section > footer {
     /* Projects and About Me*/
     
     /* add parallax effect*/
-    .project1, .project2, .project3, main > article {
+    .ravenous, .jammming, .project3, main > article {
         background-attachment: fixed;
     }
-    .project1 {
+    .ravenous {
         background-image: url("../projects/ravenous/src/components/SearchBar/background_search_desktop.jpg"); 
     }
 

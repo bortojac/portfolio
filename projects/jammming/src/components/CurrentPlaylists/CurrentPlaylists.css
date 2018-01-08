@@ -2,6 +2,11 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    background-color: rgb(1, 12, 63);
+    /*border-left: .1rem solid rgb(128, 129, 134);
+    border-right:.1rem solid rgb(128, 129, 134);*/
+   ;
+    border-radius: 5px;
   }
   
   .playlistDiv {
@@ -23,6 +28,10 @@
   }
 
   ul {
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     max-height: 75%;
+    width: 75%;
+    margin: 1rem auto;    
   }
+

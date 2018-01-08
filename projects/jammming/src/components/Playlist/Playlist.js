@@ -74,23 +74,24 @@ class Playlist extends React.Component {
     render() {
         return (
             <div className="Playlist">
-            <input onChange={this.handleNameChange} value={this.props.playlistName}
-             />
-             {//console.log(this.props.playlistTracks)
-             }
-            <TrackList onRemove={this.props.onRemove} tracks={this.props.playlistTracks} isRemoval={true}/>
-            <a onClick={this.handleSave} className="Playlist-button">{this.renderCheckMark()}</a>
-            <a onClick={this.modalOpenFuncs} className="Playlist-button">LOAD A PLAYLIST</a>
-            <PlaylistModal 
-            loadPlaylist={this.props.loadPlaylist}
-            onNameChange={this.props.onNameChange}
-            openModal={this.modelOpenFuncs} 
-            closeModal={this.closeModal}
-            modalIsOpen={this.state.modalIsOpen} 
-            currentPlaylists={this.props.currentPlaylists}
-            getPlaylistTracks={this.props.getPlaylistTracks}
-            />
-          </div>
+                <input onChange={this.handleNameChange} value={this.props.playlistName} />
+                <div className="playlistContainer">
+                    <TrackList onRemove={this.props.onRemove} tracks={this.props.playlistTracks} isRemoval={true} />
+                </div>
+                <div className="buttonContainer">
+                    <a onClick={this.handleSave} className="Playlist-button">{this.renderCheckMark()}</a>
+                    <a onClick={this.modalOpenFuncs} className="Playlist-button">LOAD A PLAYLIST</a>
+                </div>
+                <PlaylistModal
+                    loadPlaylist={this.props.loadPlaylist}
+                    onNameChange={this.props.onNameChange}
+                    openModal={this.modelOpenFuncs}
+                    closeModal={this.closeModal}
+                    modalIsOpen={this.state.modalIsOpen}
+                    currentPlaylists={this.props.currentPlaylists}
+                    getPlaylistTracks={this.props.getPlaylistTracks}
+                />
+            </div>
         );
     }
 }

@@ -95,6 +95,7 @@ class App extends Component {
      onSearch={this.search}
      />
     <div className="App-playlist">
+  
     <SearchResults 
      onAdd={this.addTrack}
      searchResults={this.state.searchResults}

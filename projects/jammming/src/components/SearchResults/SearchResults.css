@@ -1,5 +1,5 @@
 .SearchResults {
-    width: 46%;
+    width: 45%;
     max-height: 500px;
     padding: .88rem;
     background-color: rgba(1, 12, 63, 0.7);
@@ -7,11 +7,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: none;
   }
   
   .searchResultsContainer {
     overflow-y: scroll;
-    flex: 1;
+    flex: 0 1 auto;
     width: 100%;
 
   }
@@ -25,7 +26,10 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1.55rem;
     color: #fff;
-    height: 2rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    flex: none;
   }
   /*::-webkit-scrollbar {
       width: 0px;

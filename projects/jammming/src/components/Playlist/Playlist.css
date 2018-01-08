@@ -4,11 +4,12 @@
     align-items: center;
     overflow-y: scroll;
     flex: none;
-    width: 42%;
+    width: 45%;
     max-height: 500px;
     padding: .88rem;
     background-color: rgba(1, 12, 63, 0.7);
     box-shadow: 0 4px 2px 2px #000000;
+
   }
 
   .playlistContainer {
@@ -16,7 +17,8 @@
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-    flex: 1;
+    flex: 1 1 auto;
+    width: 100%;
   }
   
   .buttonContainer {
@@ -27,7 +29,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
+    align-self: flex-end;
   }
   
   .Playlist input {

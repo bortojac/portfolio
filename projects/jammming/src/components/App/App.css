@@ -28,8 +28,8 @@ h2 {
 }
 
 .App {
-  height: 100vh;
-  padding: 0 17% 10% 17%;
+  min-height: 100vh;
+  padding: 0 13% 1% 13%;
   background-image: url('./background_photo_desktop.jpg');
   background-size: cover;
   background-position: center;
@@ -37,12 +37,17 @@ h2 {
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  justify-content: center;
 }
 
 .App-playlist {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: auto;
 }
 
 @media only screen and (max-width: 1020px) {

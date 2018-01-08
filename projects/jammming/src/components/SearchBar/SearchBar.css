@@ -4,6 +4,8 @@
     align-items: center;
     padding-top: 4rem;
     margin-bottom: 3rem;
+    flex: none;
+    /*margin-top: 3rem;*/
   }
   
   .SearchBar input {

@@ -5,8 +5,8 @@
 let accessToken = '';
 let expireTime = '';
 const clientID = '889519bd940a428087d936a46da18350';
-//const redirectURI = 'http://localhost:3000';
-const redirectURI = 'https://jammming.now.sh';
+const redirectURI = 'http://localhost:3000';
+//const redirectURI = 'https://jammming.now.sh';
 const spotifyURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&redirect_uri=${redirectURI}&scope=playlist-modify-public&response_type=token`;
 
 

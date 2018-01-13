@@ -29,6 +29,7 @@ class App extends Component {
   addTrack(track) {
     //console.log(track.name);
     // if the track isn't already in the playlist, add it.
+    console.log(track)
     if(!this.state.playlistTracks.map(playlistTrack => playlistTrack.id).includes(track.id)) {
       this.setState((prevState) => {
         return {playlistTracks: prevState.playlistTracks.concat(track)};

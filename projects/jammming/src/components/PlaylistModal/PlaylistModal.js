@@ -21,7 +21,7 @@ class PlaylistModal extends React.Component {
         >
 
         <CurrentPlaylists
-        loadPlaylists={this.props.loadPlaylists}
+        //loadPlaylists={this.props.loadPlaylists}
         currentPlaylists={this.props.currentPlaylists}
         getPlaylistTracks={this.props.getPlaylistTracks}
         closeModal={this.props.closeModal}

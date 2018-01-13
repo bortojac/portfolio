@@ -83,9 +83,9 @@ class Playlist extends React.Component {
                     <a onClick={this.modalOpenFuncs} className="Playlist-button">LOAD A PLAYLIST</a>
                 </div>
                 <PlaylistModal
-                    loadPlaylist={this.props.loadPlaylist}
+                    //loadPlaylist={this.props.loadPlaylist}
                     onNameChange={this.props.onNameChange}
-                    openModal={this.modelOpenFuncs}
+                    //openModal={this.modelOpenFuncs}
                     closeModal={this.closeModal}
                     modalIsOpen={this.state.modalIsOpen}
                     currentPlaylists={this.props.currentPlaylists}

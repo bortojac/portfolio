@@ -10,16 +10,16 @@ class Playlist extends React.Component {
             modalIsOpen: false,
             saved: false
         };
-        this.openModal = this.openModal.bind(this);
+        /*this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.modalOpenFuncs = this.modalOpenFuncs.bind(this);
         this.handleSave = this.handleSave.bind(this);
-        this.renderCheckMark = this.renderCheckMark.bind(this);
+        this.renderCheckMark = this.renderCheckMark.bind(this);*/
     }
 
             
-    openModal() {
+   /* openModal() {
         this.setState({modalIsOpen: true});
     }
     closeModal() {
@@ -34,14 +34,13 @@ class Playlist extends React.Component {
 
     modalOpenFuncs() {
         // update the currentPlaylists state. 
-        //TO DO: this could update earlier than onclick. maybe on a timer?? Need this or progress bar
         this.props.loadPlaylist();
         //console.log(this.props.currentPlaylists)
         this.openModal();
-    }    
+    }    */
     handleSave() {
         // save to spotify
-        this.props.onSave();
+        //this.props.onSave();
         // change the saved state to render the checkmark
         this.setState({saved: true});
 
@@ -61,7 +60,7 @@ class Playlist extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    /*componentWillReceiveProps(nextProps) {
         // if the tracks in the playlist change do not render the checkmark
         if(nextProps.playlistTracks !== this.props.playlistTracks) {
             
@@ -69,20 +68,24 @@ class Playlist extends React.Component {
         }
 
     }
-
+*/
     
     render() {
         return (
             <div className="Playlist">
                 <input onChange={this.handleNameChange} value={this.props.playlistName} />
                 <div className="playlistContainer">
-                    <TrackList onRemove={this.props.onRemove} tracks={this.props.playlistTracks} isRemoval={true} />
+                    <TrackList 
+                     //onRemove={this.props.onRemove}
+                     tracks={this.props.playlistTracks} 
+                     isRemoval
+                      />
                 </div>
                 <div className="buttonContainer">
                     <a onClick={this.handleSave} className="Playlist-button">{this.renderCheckMark()}</a>
                     <a onClick={this.modalOpenFuncs} className="Playlist-button">LOAD A PLAYLIST</a>
                 </div>
-                <PlaylistModal
+                {/*<PlaylistModal
                     //loadPlaylist={this.props.loadPlaylist}
                     onNameChange={this.props.onNameChange}
                     //openModal={this.modelOpenFuncs}
@@ -90,7 +93,7 @@ class Playlist extends React.Component {
                     modalIsOpen={this.state.modalIsOpen}
                     currentPlaylists={this.props.currentPlaylists}
                     getPlaylistTracks={this.props.getPlaylistTracks}
-                />
+                />*/}
             </div>
         );
     }

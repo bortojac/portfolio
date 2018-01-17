@@ -1,10 +1,10 @@
 import React from 'react';
 import './TrackList.css';
-import Track from '../Track/Track';
+import Track from '../Track';
 
-const TrackList = ({ onRemove, onAdd, isRemoval, playlistTracks }) => {
-
-        let tracks = this.props.tracks;
+const TrackList = ({ tracks, isRemoval }) => {
+    console.log(tracks);
+        //let tracks = this.props.tracks;
         //console.log(tracks);
         return (
         <div className="TrackList">
@@ -15,12 +15,12 @@ const TrackList = ({ onRemove, onAdd, isRemoval, playlistTracks }) => {
             //console.log(track[0]);
             //console.log(track.name);
            return <Track 
-             onRemove={onRemove}
-             onAdd={onAdd}
+             //onRemove={onRemove}
+             //onAdd={onAdd}
              key={index}
              track={track}
              isRemoval={isRemoval}
-             playlistTracks = {playlistTracks}
+             //playlistTracks = {playlistTracks}
              />;
         })}
         </div>

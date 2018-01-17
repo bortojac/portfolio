@@ -7,23 +7,21 @@ import {
 } from '../actions/actions.js';
 
 
-// helper function for adding track
+// helper function for adding track. remember that 'state' here is going to be the slice of the state managed by playlistTracks()
 function addTrack(state, track) {
-    if(!this.state.playlistTracks.map(playlistTrack => playlistTrack.id).includes(track.id)) {
         return Object.assign({}, state, {
-            playlistTracks: [
-                ...state.playlistTracks,
+            tracks: [
+                ...state.tracks,
                 track
             ]
           })
-        }
 }
 
-// helper function for removing track
+// helper function for removing track. remember that 'state' here is going to be the slice of the state managed by playlistTracks()
 function removeTrack(state, track) {
     return Object.assign({}, state, {
-        playlistTracks: [
-            ...state.playlistTracks.filter(playlistTrack => playlistTrack.id !== track.id)
+        tracks: [
+            ...state.tracks.filter(playlistTrack => playlistTrack.id !== track.id)
         ]
       })
 
@@ -33,8 +31,7 @@ function removeTrack(state, track) {
 
 export function playlistTracks(
     state = {
-        tracks: [],
-        isFetching: false,
+        tracks: []
     }, action) {
 
     switch(action.type) {

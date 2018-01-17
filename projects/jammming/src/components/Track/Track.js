@@ -9,14 +9,16 @@ class Track extends React.Component {
     }
 
     addTrack() {
-      this.props.onAdd(this.props.track); 
-    }
+        if(!this.props.playlistTracks.map(playlistTrack => playlistTrack.id).includes(this.props.track.id)) {
+            this.props.onAdd(this.props.track); 
+        } else {return}
+}
 
     removeTrack() {
         this.props.onRemove(this.props.track);
     }
 
-    renderAction() {
+    addOrRemove() {
         if(this.props.isRemoval) {
             return (<a onClick={this.removeTrack} className='Track-action'>-</a>);
         } else {
@@ -39,10 +41,9 @@ class Track extends React.Component {
               <h3>{this.props.track.name}</h3>
               <p>{`${this.props.track.artist} | ${this.props.track.album}`}</p>
             </div>
-           {this.renderAction()}
+           {this.addOrRemove()}
           </div>
         );
     }
 }
-
 export default Track;

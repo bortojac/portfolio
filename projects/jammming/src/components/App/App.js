@@ -3,8 +3,8 @@ import './App.css';
 import {connect} from 'react-redux';
 import SearchBar from '../SearchBar';
 //import SearchBarContainer from '../../components/SearchBar/index';
-import SearchResults from '../SearchResults/SearchResults';
-import Playlist from '../Playlist/Playlist';
+import SearchResults from '../SearchResults';
+import Playlist from '../Playlist';
 //import Spotify from '../util/spotify';
 //import {getAccessToken} from '../../actions/actions';
 
@@ -100,22 +100,23 @@ removeTrack(track) {
     <SearchBar />
     <div className="App-playlist">
   
-    {/*<SearchResults 
-     onAdd={this.addTrack}
+    <SearchResults 
+     /*onAdd={this.addTrack}
      searchResults={this.state.searchResults}
-     playlistTracks={this.state.playlistTracks}
+     playlistTracks={this.state.playlistTracks}*/
      />
+    {
     <Playlist
-     onSave={this.savePlaylist}
+     /*onSave={this.savePlaylist}
      onNameChange={this.updatePlaylistName}
      onRemove={this.removeTrack}
      playlistName={this.state.playlistName}
      playlistTracks={this.state.playlistTracks}
      loadPlaylist={this.loadPlaylist}
      currentPlaylists={this.state.currentPlaylists} 
-     getPlaylistTracks={this.getPlaylistTracks}
-     />
-    */}
+     getPlaylistTracks={this.getPlaylistTracks}*/
+    />
+    }
     </div>
   </div>
 </div>

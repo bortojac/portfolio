@@ -1,3 +1,7 @@
+
+import { receiveSearch } from '../actions/actions';
+
+
 // we are using implicit grant flow. See spotify dev docs
 // future update: add state to the spotify URL. This is more secure. create a variable that is radomized for each client state that we can use to check the request.
 // see https://developer.spotify.com/web-api/authorization-guide/#implicit_grant_flow
@@ -36,6 +40,7 @@ let Spotify = {
     
     //search returns a promise that will resolve to a list of tracks from the spotify api
     search(term) {
+        console.log(term);
        return fetch(
             `https://api.spotify.com/v1/search?type=track&q=${term}`,
             {
@@ -47,27 +52,13 @@ let Spotify = {
         ).then(
             response => {
             if(response.ok) {
+                dispatch => dispatch(receiveSearch)
                 return response.json();
             }
             throw new Error('The Request to Spotify API failed');
         },
         networkError => console.log(networkError.message)
-    ).then(
-        jsonResponse => {
-            if(jsonResponse.tracks) {
-                //console.log(jsonResponse.tracks.items);
-                return jsonResponse.tracks.items.map(
-                    track => ({
-                        id: track.id,
-                        name: track.name,
-                        artist: track.artists[0].name,
-                        album: track.album.name,
-                        uri: track.uri
-                    })
-                );
-            }
-        }
-        );
+    );
     },
 
     savePlaylist(playlistName, trackURIs) {

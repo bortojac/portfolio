@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from '../SearchBar/SearchBar';
+import {connect} from 'react-redux';
+import SearchBar from '../SearchBar';
+//import SearchBarContainer from '../../components/SearchBar/index';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
-import Spotify from '../../util/spotify';
+//import Spotify from '../util/spotify';
+//import {getAccessToken} from '../../actions/actions';
 
-// get the accessToken
-Spotify.getAccessToken();
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchResults: [],
-      playlistName: 'New Playlist',
-      playlistTracks: [],
-      currentPlaylists: []
-  };
-  this.addTrack = this.addTrack.bind(this);
-  this.removeTrack = this.removeTrack.bind(this);
-  this.updatePlaylistName = this.updatePlaylistName.bind(this);
-  this.savePlaylist = this.savePlaylist.bind(this);
-  this.search = this.search.bind(this);
-  this.loadPlaylist = this.loadPlaylist.bind(this);
-  this.getPlaylistTracks = this.getPlaylistTracks.bind(this);
-  }
 
-  addTrack(track) {
+const App = ({getAccessToken}) => {
+
+    //this.state = {
+      //searchResults: [],
+      //playlistName: 'New Playlist',
+      //playlistTracks: [],
+      //currentPlaylists: []
+  //};
+  //this.addTrack = this.addTrack.bind(this);
+  //this.removeTrack = this.removeTrack.bind(this);
+  /*this.updatePlaylistName = this.updatePlaylistName.bind(this);
+  this.savePlaylist = this.savePlaylist.bind(this);*/
+  //this.search = this.search.bind(this);
+  //this.loadPlaylist = this.loadPlaylist.bind(this);
+  //this.getPlaylistTracks = this.getPlaylistTracks.bind(this);
+  
+
+  /*addTrack(track) {
     //console.log(track.name);
     // if the track isn't already in the playlist, add it.
     console.log(track)
@@ -38,8 +39,25 @@ class App extends Component {
     
   }
 }
+removeTrack(track) {
+  //console.log(track.name);
+  this.setState({playlistTracks: this.state.playlistTracks.filter(playlistTrack => playlistTrack.id !== track.id)
+  })
+}*/
 
-  loadPlaylist() {
+/*search(term) {
+  Spotify.search(term)
+  .then(searchResults => {
+    //console.log(searchResults);
+    this.setState({
+    searchResults: searchResults
+    });
+  });*/
+
+  //this.setState({searchResults: searchResults}));
+  //this.setState({searchResults: Spotify.search(term)});
+//}
+  /*loadPlaylist() {
     Spotify.loadPlaylist().then(playlists => {
       //console.log(playlists);
       this.setState({currentPlaylists: playlists});
@@ -55,12 +73,6 @@ class App extends Component {
 
   }
 
-  removeTrack(track) {
-    //console.log(track.name);
-    this.setState({playlistTracks: this.state.playlistTracks.filter(playlistTrack => playlistTrack.id !== track.id)
-    })
-  }
-
   updatePlaylistName(name) {
     //console.log(name);
     this.setState({playlistName: name});
@@ -73,31 +85,22 @@ class App extends Component {
     Spotify.savePlaylist(this.state.playlistName, trackURIs);
     
   }
+*/
 
-  search(term) {
-    Spotify.search(term)
-    .then(searchResults => {
-      //console.log(searchResults);
-      this.setState({
-      searchResults: searchResults
-      });
-    });
+  getAccessToken();
 
-    //this.setState({searchResults: searchResults}));
-    //this.setState({searchResults: Spotify.search(term)});
-  }
 
-  render() {
-    return (
+  return (
+    //console.log(this.props);
+
+
       <div>
   <h1>Ja<span className="highlight">mmm</span>ing</h1>
   <div className="App">
-    <SearchBar
-     onSearch={this.search}
-     />
+    <SearchBar />
     <div className="App-playlist">
   
-    <SearchResults 
+    {/*<SearchResults 
      onAdd={this.addTrack}
      searchResults={this.state.searchResults}
      playlistTracks={this.state.playlistTracks}
@@ -112,11 +115,11 @@ class App extends Component {
      currentPlaylists={this.state.currentPlaylists} 
      getPlaylistTracks={this.getPlaylistTracks}
      />
+    */}
     </div>
   </div>
 </div>
     );
-  }
 }
 
 export default App;

@@ -5,14 +5,12 @@ import './PlaylistModal.css';
 
 Modal.setAppElement('#root');
 
-class PlaylistModal extends React.Component {
-
-    render() {
+const PlaylistModal = ({ modalIsOpen, closeModal, currentPlaylists, getPlaylistTracks, onNameChange }) => {
         return (
     <div>
         <Modal 
-            isOpen={this.props.modalIsOpen}
-            onRequestClose={this.props.closeModal}
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
             className="myModalDialog"
             overlayClassName="myOverlay"
         //style={customStyles}
@@ -22,16 +20,15 @@ class PlaylistModal extends React.Component {
 
         <CurrentPlaylists
         //loadPlaylists={this.props.loadPlaylists}
-        currentPlaylists={this.props.currentPlaylists}
-        getPlaylistTracks={this.props.getPlaylistTracks}
-        closeModal={this.props.closeModal}
-        onNameChange={this.props.onNameChange}
+        currentPlaylists={currentPlaylists}
+        getPlaylistTracks={getPlaylistTracks}
+        closeModal={closeModal}
+        onNameChange={onNameChange}
         />
         
         </Modal>
     </div>
         );
-    }
 }
 
 export default PlaylistModal;

@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
+import { fetchSearchResults } from '../../actions/actions';
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class SearchBar extends React.Component {
     // search Spotify API with onSearch passed down from App.js
     search() {
         if(this.state.searchTerm) {
+            console.log(this.props)
             this.props.onSearch(this.state.searchTerm);
         }
         else {

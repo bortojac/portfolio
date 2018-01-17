@@ -2,9 +2,8 @@ import React from 'react';
 import './TrackList.css';
 import Track from '../Track/Track';
 
-class TrackList extends React.Component {
+const TrackList = ({ onRemove, onAdd, isRemoval, playlistTracks }) => {
 
-    render() {
         let tracks = this.props.tracks;
         //console.log(tracks);
         return (
@@ -16,17 +15,16 @@ class TrackList extends React.Component {
             //console.log(track[0]);
             //console.log(track.name);
            return <Track 
-             onRemove={this.props.onRemove}
-             onAdd={this.props.onAdd}
+             onRemove={onRemove}
+             onAdd={onAdd}
              key={index}
              track={track}
-             isRemoval={this.props.isRemoval}
-             playlistTracks = {this.props.playlistTracks}
+             isRemoval={isRemoval}
+             playlistTracks = {playlistTracks}
              />;
         })}
         </div>
         );
-    }
 }
 
 export default TrackList;

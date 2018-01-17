@@ -2,22 +2,20 @@ import React from 'react';
 import TrackList from '../TrackList/TrackList';
 import './SearchResults.css';
 
-class SearchResults extends React.Component {
-    render() {
+const SearchResults = ({ onAdd, searchResults, playlistTracks }) =>  {
         return (
             <div className='SearchResults'>
                 <h2>Results</h2>
                 <div className="searchResultsContainer">
                     <TrackList
-                        onAdd={this.props.onAdd}
-                        tracks={this.props.searchResults}
+                        onAdd={onAdd}
+                        tracks={searchResults}
                         isRemoval={false}
-                        playlistTracks={this.props.playlistTracks} 
+                        playlistTracks={playlistTracks} 
                         />
                 </div>
             </div>
         );
-    }
 }
 
 export default SearchResults;

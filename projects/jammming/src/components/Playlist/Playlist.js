@@ -8,18 +8,18 @@ class Playlist extends React.Component {
         super(props);
         this.state = {
             modalIsOpen: false,
-            saved: false
+            //saved: false
         };
-        /*this.openModal = this.openModal.bind(this);
+        this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.modalOpenFuncs = this.modalOpenFuncs.bind(this);
         this.handleSave = this.handleSave.bind(this);
-        this.renderCheckMark = this.renderCheckMark.bind(this);*/
+        this.renderCheckMark = this.renderCheckMark.bind(this);
     }
 
             
-   /* openModal() {
+   openModal() {
         this.setState({modalIsOpen: true});
     }
     closeModal() {
@@ -28,7 +28,7 @@ class Playlist extends React.Component {
 
     handleNameChange(event) {
         this.props.onNameChange(event.target.value);
-        this.setState({saved: false});
+        //this.setState({saved: false});
 
     }
 
@@ -37,18 +37,19 @@ class Playlist extends React.Component {
         this.props.loadPlaylist();
         //console.log(this.props.currentPlaylists)
         this.openModal();
-    }    */
+    }    
+
     handleSave() {
         // save to spotify
-        //this.props.onSave();
+        this.props.onSave(this.props.playlistName, this.props.trackURIs);
         // change the saved state to render the checkmark
-        this.setState({saved: true});
+        //this.setState({saved: true});
 
     }
 
     renderCheckMark() {
         // if saved state is true, render the checkmark
-        if(this.state.saved) {
+        if(this.props.saved) {
         return (
             <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
             <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
@@ -59,18 +60,9 @@ class Playlist extends React.Component {
             return 'SAVE PLAYLIST';
         }
     }
-
-    /*componentWillReceiveProps(nextProps) {
-        // if the tracks in the playlist change do not render the checkmark
-        if(nextProps.playlistTracks !== this.props.playlistTracks) {
-            
-            this.setState({saved: false})
-        }
-
-    }
-*/
     
     render() {
+        console.log(this.props)
         return (
             <div className="Playlist">
                 <input onChange={this.handleNameChange} value={this.props.playlistName} />

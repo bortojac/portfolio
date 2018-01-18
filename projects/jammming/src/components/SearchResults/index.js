@@ -4,7 +4,7 @@ import SearchResults from './SearchResults';
 
 
 const mapStateToProps = state => {
-    console.log(state.searchResults.tracks);
+    //console.log(state.searchResults.tracks);
     return {searchResults: state.searchResults.tracks};
   }
 

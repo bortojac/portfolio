@@ -4,6 +4,9 @@ import {
     SEARCH,
     REQUEST_SEARCH,
     RECEIVE_SEARCH,
+    UPDATE_PLAYLIST_NAME,
+    SAVE_NEEDED,
+    SAVE_FINISHED
 } from '../actions/actions.js';
 
 
@@ -31,7 +34,8 @@ function removeTrack(state, track) {
 
 export function playlistTracks(
     state = {
-        tracks: []
+        tracks: [],
+        trackURIs: []
     }, action) {
 
     switch(action.type) {
@@ -72,5 +76,47 @@ export function searchResults (
   }
 
 
+export function savePlaylist (
+    state = {
+        saved: false,
+        playlistName: '',
+        playlistID: ''
+    },
+    action
+) {
+    switch (action.type) {
+        case SAVE_NEEDED:
+            return Object.assign({}, state, {
+                saved: false,
+                playlistName: action.playlistName,
+            })
+        case SAVE_FINISHED:
+            return Object.assign({}, state, {
+                saved: true,
+                playlistName: action.playlistName,
+                playlistID: action.playlistID
+        })
+        default:
+        return state
+    }
+}
+
+// this reducer governs the name of the playlist. the one managed by savePlaylist is in a different slice of the state that is just for documentation purposes
+export function playlistName (
+    state = {
+        name: 'New Playlist'
+    },
+    action
+) { switch(action.type) {
+
+    case UPDATE_PLAYLIST_NAME:
+        return Object.assign({}, state, {
+            name: action.name
+        })
+        default:
+        return state
+}
+
+}
 
 

@@ -6,8 +6,13 @@ import {
     RECEIVE_SEARCH,
     UPDATE_PLAYLIST_NAME,
     SAVE_NEEDED,
-    SAVE_FINISHED
+    SAVE_FINISHED,
+    PLAYLISTS_REQUEST,
+    PLAYLISTS_RECIEVED,
+    PLAYLIST_TRACKS_REQUEST,
+    PLAYLIST_TRACKS_RECEIVED
 } from '../actions/actions.js';
+import Playlist from '../components/Playlist/Playlist';
 
 
 // helper function for adding track. remember that 'state' here is going to be the slice of the state managed by playlistTracks()
@@ -16,36 +21,49 @@ function addTrack(state, track) {
             tracks: [
                 ...state.tracks,
                 track
-            ]
-          })
+            ]//,
+            //trackURIs: [
+              //  ...state.tracks.map(x => x.uri),
+                //track.uri
+            //]
+          });
 }
 
 // helper function for removing track. remember that 'state' here is going to be the slice of the state managed by playlistTracks()
 function removeTrack(state, track) {
+    let filteredTracks = [...state.tracks.filter(playlistTrack => playlistTrack.id !== track.id)];
     return Object.assign({}, state, {
-        tracks: [
-            ...state.tracks.filter(playlistTrack => playlistTrack.id !== track.id)
-        ]
-      })
-
-    //this.setState({playlistTracks: this.state.playlistTracks.filter(playlistTrack => playlistTrack.id !== track.id)
-    //})
+        tracks: filteredTracks,
+        //trackURIs: filteredTracks.map(x => x.uri)
+          });
 }
 
 export function playlistTracks(
     state = {
         tracks: [],
-        trackURIs: []
+        //trackURIs: [],
+        tracksLoading: false
     }, action) {
 
-    switch(action.type) {
+    switch (action.type) {
         case ADD_TRACK:
             return addTrack(state, action.track);
+
         case REMOVE_TRACK:
             return removeTrack(state, action.track);
-        
-         default:
-            return state
+
+        case PLAYLIST_TRACKS_REQUEST:
+            return Object.assign({}, state, {
+                tracksLoading: true
+            })
+        case PLAYLIST_TRACKS_RECEIVED:
+            return Object.assign({}, state, {
+                tracksLoading: true,
+                tracks: action.tracks,
+                trackURIs: action.trackURIs
+            })
+        default:
+            return state;
     }
 
 }
@@ -62,16 +80,16 @@ export function searchResults (
         return Object.assign({}, state, {
           isFetching: true,
           //didInvalidate: false
-        })
+        });
       case RECEIVE_SEARCH:
         return Object.assign({}, state, {
           isFetching: false,
           //didInvalidate: false,
           tracks: action.jsonSearchResults,
           //lastUpdated: action.receivedAt
-        })
+        });
       default:
-        return state
+        return state;
     }
   }
 
@@ -89,15 +107,15 @@ export function savePlaylist (
             return Object.assign({}, state, {
                 saved: false,
                 playlistName: action.playlistName,
-            })
+            });
         case SAVE_FINISHED:
             return Object.assign({}, state, {
                 saved: true,
                 playlistName: action.playlistName,
                 playlistID: action.playlistID
-        })
+        });
         default:
-        return state
+        return state;
     }
 }
 
@@ -112,11 +130,55 @@ export function playlistName (
     case UPDATE_PLAYLIST_NAME:
         return Object.assign({}, state, {
             name: action.name
-        })
+        });
         default:
-        return state
+        return state;
 }
 
 }
+
+export function loadPlaylists (
+    state = {
+        loading: false,
+        currentPlaylists: []
+    },
+    action
+) {
+    switch(action.type) {
+        case PLAYLISTS_REQUEST:
+            return Object.assign({}, state, {
+                loading: true
+            });
+        case PLAYLISTS_RECIEVED:
+            return Object.assign({}, state, {
+                loading: false,
+                currentPlaylists: action.currentPlaylists
+            });
+        default:
+            return state;
+    }
+}
+
+/*export function getPlaylistTracks (
+    state = {
+        tracksLoading: false,
+        tracks: []
+    },
+    action
+) {
+    switch(action.type) {
+        case PLAYLIST_TRACKS_REQUEST:
+            return Object.assign({}, state, {
+                tracksLoading: true
+            })
+        case PLAYLIST_TRACKS_RECEIVED:
+            return Object.assign({}, state, {
+                tracksLoading: true,
+                tracks: action.tracks
+            })
+        default:
+            return state;
+    }
+}*/
 
 

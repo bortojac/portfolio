@@ -1,7 +1,7 @@
 // import reducers from all other reducer files
 
 import { combineReducers } from 'redux';
-import { playlistTracks, searchResults, savePlaylist, playlistName} from './searchResults';
+import { playlistTracks, searchResults, savePlaylist, playlistName, loadPlaylists} from './searchResults';
 import { token } from './app';
 
 const rootReducer = combineReducers({
@@ -9,6 +9,8 @@ const rootReducer = combineReducers({
   searchResults,
   savePlaylist,
   playlistName,
+  loadPlaylists,
+  //getPlaylistTracks,
   token
 })
 

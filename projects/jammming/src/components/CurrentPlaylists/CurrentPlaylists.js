@@ -1,6 +1,6 @@
 import React from 'react';
 import '../CurrentPlaylists/CurrentPlaylists.css';
-import UserPlaylist from '../UserPlaylist/UserPlaylist';
+import UserPlaylist from '../UserPlaylist';
 import { RiseLoader } from 'react-spinners';
 
 
@@ -9,19 +9,19 @@ class CurrentPlaylists extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true
-        } 
+        //this.state = {
+         //   loading: true
+        //} 
     }
 
 
     // loading bar
-    componentWillReceiveProps(nextProps) {
+  /*  componentWillReceiveProps(nextProps) {
         if(nextProps !== this.props) {
         this.setState({loading: false});
         }
         
-    }
+    }*/
 
     // this function will handle the click on a playlist div and update the state of playlistTracks
     // will need to pass a function down from App.js? new fetch to get tracks from selected playlist?
@@ -38,17 +38,17 @@ class CurrentPlaylists extends React.Component {
 
             <RiseLoader
           color={'#123abc'} 
-          loading={this.state.loading} 
+          loading={this.props.loading} 
         />
             <ul className="playlists">
               {playlistObjs.map(
                     playlistObj => {
                         return <UserPlaylist 
                         key={playlistObj.id}
-                        getPlaylistTracks={this.props.getPlaylistTracks}
+                        //getPlaylistTracks={this.props.getPlaylistTracks}
                         playlistObj={playlistObj}
                         closeModal={this.props.closeModal}
-                        onNameChange={this.props.onNameChange}
+                        //onNameChange={this.props.onNameChange}
                         />;
 
               })

@@ -10,6 +10,10 @@ export const AUTH_RECEIVED = 'AUTH_RECEIVED'
 export const SAVE_NEEDED = 'SAVE_NEEDED'
 export const SAVE_FINISHED = 'SAVE_FINISHED'
 export const UPDATE_PLAYLIST_NAME = 'UPDATE_PLAYLIST_NAME'
+export const PLAYLISTS_REQUEST = 'PLAYLISTS_REQUEST'
+export const PLAYLISTS_RECIEVED = 'PLAYLISTS_RECEIVED'
+export const PLAYLIST_TRACKS_REQUEST = 'PLAYLIST_TRACKS_REQUEST'
+export const PLAYLIST_TRACKS_RECEIVED = 'PLAYLIST_TRACKS_RECEIVED'
 
 let accessToken = '';
 let expireTime = '';
@@ -254,4 +258,96 @@ export function updatePlaylistName(name) {
         })
 
     }
+}
+
+
+export function playlistsRequest() {
+    return {
+        type: PLAYLISTS_REQUEST
+    }
+}
+
+export function playlistsRecieved(jsonResponse) {
+    return {
+        type: PLAYLISTS_RECIEVED,
+        currentPlaylists: jsonResponse.items.map(
+            playlist => ({
+                 name: playlist.name,
+                 id: playlist.id
+         })
+      )
+    }
+}
+
+export function loadPlaylists() {
+    return dispatch => {
+        dispatch(playlistsRequest())
+
+            //if(!playlistName || trackURIs.length===0 || !trackURIs) return;
+            let token = accessToken;
+            let headers = {
+                Authorization: `Bearer ${token}`
+            };
+            let userID = '';
+           return fetch('https://api.spotify.com/v1/me',
+             {headers: headers})
+             .then(response => response.json())
+             .then(jsonResponse => {
+                //console.log(jsonResponse.id);
+                //console.log(token);
+                userID = jsonResponse.id
+            return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {headers:headers})
+        })
+        .then(response => response.json())
+        .then(jsonResponse => dispatch(playlistsRecieved(jsonResponse)));
+        }
+}
+
+
+export function playlistTracksRequest() {
+    return {
+        type: PLAYLIST_TRACKS_REQUEST
+    };
+}
+
+// helper function gor playlistTracksRecieved
+function getTracks(jsonResponse) {
+    if(jsonResponse.items) {
+        //console.log(jsonResponse.items);
+        return jsonResponse.items.map(
+            item => ({
+                id: item.track.id,
+                name: item.track.name,
+                artist: item.track.artists[0].name,
+                album: item.track.album.name,
+                uri: item.track.uri
+            })
+        );
+    }
+}
+export function playlistTracksReceived(jsonResponse) {
+    return {
+        type: PLAYLIST_TRACKS_RECEIVED,
+        tracks: getTracks(jsonResponse),
+        //trackURIs: getTracks(jsonResponse).map(track => track.uri)
+    };
+}
+
+export function getPlaylistTracks(playlistID) {
+    return dispatch => {
+        dispatch(playlistTracksRequest());
+        let headers = {Authorization: `Bearer ${accessToken}`};
+        let userID = '';
+
+        // make a request to get the userID and use that with the playlistID argument to get the tracks
+        return fetch('https://api.spotify.com/v1/me',{headers: headers})
+        .then(response => response.json())
+        .then(jsonResponse => {
+            userID = jsonResponse.id;
+            return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, {headers: headers});
+        })
+        .then(response => response.json())
+        .then(jsonResponse =>  dispatch(playlistTracksReceived(jsonResponse))
+    );
+    };
 }

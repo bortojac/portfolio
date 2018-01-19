@@ -1,6 +1,6 @@
 import React from 'react';
 import TrackList from '../TrackList/TrackList';
-import PlaylistModal from '../PlaylistModal/PlaylistModal';
+import PlaylistModal from '../PlaylistModal';
 import './Playlist.css';
 
 class Playlist extends React.Component {
@@ -34,14 +34,15 @@ class Playlist extends React.Component {
 
     modalOpenFuncs() {
         // update the currentPlaylists state. 
-        this.props.loadPlaylist();
+        this.props.loadPlaylists();
         //console.log(this.props.currentPlaylists)
         this.openModal();
     }    
 
     handleSave() {
         // save to spotify
-        this.props.onSave(this.props.playlistName, this.props.trackURIs);
+        let trackURIs = this.props.playlistTracks.map(track => track.uri);
+        this.props.onSave(this.props.playlistName, trackURIs);
         // change the saved state to render the checkmark
         //this.setState({saved: true});
 
@@ -77,15 +78,15 @@ class Playlist extends React.Component {
                     <a onClick={this.handleSave} className="Playlist-button">{this.renderCheckMark()}</a>
                     <a onClick={this.modalOpenFuncs} className="Playlist-button">LOAD A PLAYLIST</a>
                 </div>
-                {/*<PlaylistModal
+                {<PlaylistModal
                     //loadPlaylist={this.props.loadPlaylist}
-                    onNameChange={this.props.onNameChange}
+                    //onNameChange={this.props.onNameChange}
                     //openModal={this.modelOpenFuncs}
                     closeModal={this.closeModal}
                     modalIsOpen={this.state.modalIsOpen}
-                    currentPlaylists={this.props.currentPlaylists}
-                    getPlaylistTracks={this.props.getPlaylistTracks}
-                />*/}
+                    //currentPlaylists={this.props.currentPlaylists}
+                    //getPlaylistTracks={this.props.getPlaylistTracks}
+                />}
             </div>
         );
     }

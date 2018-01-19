@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import CurrentPlaylists from '../CurrentPlaylists/CurrentPlaylists';
+import CurrentPlaylists from '../CurrentPlaylists';
 import './PlaylistModal.css';
 
 Modal.setAppElement('#root');
@@ -20,10 +20,10 @@ const PlaylistModal = ({ modalIsOpen, closeModal, currentPlaylists, getPlaylistT
 
         <CurrentPlaylists
         //loadPlaylists={this.props.loadPlaylists}
-        currentPlaylists={currentPlaylists}
-        getPlaylistTracks={getPlaylistTracks}
+        //currentPlaylists={currentPlaylists}
+       //getPlaylistTracks={getPlaylistTracks}
         closeModal={closeModal}
-        onNameChange={onNameChange}
+        //onNameChange={onNameChange}
         />
         
         </Modal>

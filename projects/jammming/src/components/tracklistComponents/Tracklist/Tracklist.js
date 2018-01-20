@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './tracklist.css';
 import Track from '../Track';
 
@@ -15,6 +16,19 @@ const Tracklist = ({ tracks, isRemoval }) => {
             })}
         </div>
     );
+}
+
+Tracklist.propTypes = {
+    tracks: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            artist: PropTypes.string,
+            album: PropTypes.string,
+            uri: PropTypes.string
+        }).isRequired
+    ),
+    isRemoval: PropTypes.bool.isRequired
 }
 
 export default Tracklist;

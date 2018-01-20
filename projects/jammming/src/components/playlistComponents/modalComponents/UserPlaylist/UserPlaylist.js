@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './userPlaylist.css';
 
 class UserPlaylist extends React.Component {
@@ -26,5 +27,16 @@ class UserPlaylist extends React.Component {
         );
     }
 }
+
+UserPlaylist.propTypes = {
+    getPlaylistTracks: PropTypes.func.isRequired,
+    playlistObj: PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string
+    }).isRequired,
+    closeModal: PropTypes.func.isRequired,
+    onNameChange: PropTypes.func.isRequired
+}
+
 
 export default UserPlaylist;

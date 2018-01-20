@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './currentPlaylists.css';
 import UserPlaylist from '../UserPlaylist';
 import { RiseLoader } from 'react-spinners';
@@ -27,5 +28,17 @@ const CurrentPlaylists = ({ currentPlaylists, loading, closeModal}) => {
         </div>
     );
 }
+
+CurrentPlaylists.propTypes = {
+    currentPlaylists: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string
+        }).isRequired
+    ),
+    closeModal: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired
+}
+
 
 export default CurrentPlaylists;

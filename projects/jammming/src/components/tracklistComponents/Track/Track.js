@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './track.css';
 
 class Track extends React.Component {
@@ -46,4 +47,27 @@ class Track extends React.Component {
         );
     }
 }
+
+Track.propTypes = {
+    playlistTracks: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            artist: PropTypes.string,
+            album: PropTypes.string,
+            uri: PropTypes.string
+        }).isRequired
+    ),
+    track: PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+        artist: PropTypes.string,
+        album: PropTypes.string,
+        uri: PropTypes.string
+    }).isRequired,
+    onAdd: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired,
+    isRemoval: PropTypes.bool.isRequired
+}
+
 export default Track;

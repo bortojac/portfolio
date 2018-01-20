@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import TrackList from '../../tracklistComponents/Tracklist/Tracklist';
 import PlaylistModal from '../modalComponents/PlaylistModal';
 import './playlist.css';
@@ -75,6 +76,21 @@ class Playlist extends React.Component {
             </div>
         );
     }
+}
+
+Playlist.propTypes = {
+    loadPlaylists: PropTypes.func.isRequired,
+    playlistTracks: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            artist: PropTypes.string,
+            album: PropTypes.string,
+            uri: PropTypes.string
+        }).isRequired
+    ),
+    playlistName: PropTypes.string.isRequired,
+    onNameChange: PropTypes.func.isRequired
 }
 
 export default Playlist;

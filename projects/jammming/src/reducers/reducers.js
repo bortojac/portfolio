@@ -1,8 +1,7 @@
-// import reducers from all other reducer files
-
 import { combineReducers } from 'redux';
-import { playlistTracks, searchResults, savePlaylist, playlistName, loadPlaylists} from './searchResults';
-import { token } from './app';
+import { searchResults } from './searchReducers';
+import { playlistTracks, savePlaylist, playlistName, loadPlaylists } from './playlistReducers';
+import { token } from './authReducers';
 
 const rootReducer = combineReducers({
   playlistTracks,
@@ -10,10 +9,7 @@ const rootReducer = combineReducers({
   savePlaylist,
   playlistName,
   loadPlaylists,
-  //getPlaylistTracks,
   token
 })
 
 export default rootReducer
-
-// combine the reducers into one root reducer and this will be imported into configureStore.js

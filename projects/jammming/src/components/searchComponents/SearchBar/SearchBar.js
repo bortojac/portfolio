@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchBar.css';
+import './searchBar.css';
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -14,13 +14,12 @@ class SearchBar extends React.Component {
 
     // update the searchTerm state when the input changes
     handleTermChange(event) {
-        //console.log(event.target.value);
-        this.setState({searchTerm: event.target.value});
+        this.setState({ searchTerm: event.target.value });
     }
 
     // search Spotify API with onSearch passed down from App.js
     search() {
-        if(this.state.searchTerm) {
+        if (this.state.searchTerm) {
             this.props.onSearch(this.state.searchTerm);
         }
         else {
@@ -30,8 +29,7 @@ class SearchBar extends React.Component {
 
     // we want enter to trigger search
     handleKeyDown(event) {
-        
-        if(event.keyCode == 13 && this.state.searchTerm) {
+        if (event.keyCode == 13 && this.state.searchTerm) {
             this.search();
         }
     }
@@ -39,13 +37,13 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div className="SearchBar">
-            <input 
-             onChange={this.handleTermChange}
-             onKeyDown={this.handleKeyDown}
-             placeholder="Enter A Song, Album, or Artist"
-              />
-            <a onClick={this.search} >SEARCH</a>
-          </div>
+                <input
+                    onChange={this.handleTermChange}
+                    onKeyDown={this.handleKeyDown}
+                    placeholder="Enter A Song, Album, or Artist"
+                />
+                <a onClick={this.search} >SEARCH</a>
+            </div>
         );
     }
 }

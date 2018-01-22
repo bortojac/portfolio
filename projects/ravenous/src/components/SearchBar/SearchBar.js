@@ -8,12 +8,13 @@ class SearchBar extends React.Component {
         this.state = {
             term: '',
             location: '',
-            sortBy: 'best-match'
-        },
+            sortBy: 'best_match'
+        };
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSortByChange = this.handleSortByChange.bind(this);
-        this.handleSearch = this.handleSearch.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
 
         this.sortByOptions = {
             'Best Match': 'best_match',
@@ -28,11 +29,15 @@ class SearchBar extends React.Component {
         if(this.state.sortBy === sortByOption) {
             return 'active';
         }
-        else {return '';}
+        else return
     }
 
     handleSortByChange(sortByOption) {
         this.setState({sortBy: sortByOption});
+        if(this.props.businesses.length > 0 && this.state.term && this.state.location) {
+            this.props.onSearch(this.state.term, this.state.location, this.state.sortBy);
+        }
+        else return
     }
     handleTermChange(event) {
         this.setState({term: event.target.value});
@@ -40,9 +45,9 @@ class SearchBar extends React.Component {
     handleLocationChange(event) {
         this.setState({location: event.target.value});
     }
-    handleSearch(event) {
-        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
-        //console.log(this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy));
+    handleClick(event) {
+        console.log(this.props);
+        this.props.onSearch(this.state.term, this.state.location, this.state.sortBy);
         event.preventDefault();
     }
 
@@ -58,6 +63,13 @@ class SearchBar extends React.Component {
             );
         });
     }
+
+    handleKeyDown(event) {
+        if (event.keyCode == 13 && this.state.term && this.state.location) {
+            this.props.onSearch(this.state.term, this.state.location, this.state.sortBy)
+        }
+    }
+
     render() {
         return (
             <div className="SearchBar">
@@ -67,11 +79,11 @@ class SearchBar extends React.Component {
               </ul>
             </div>
             <div className="SearchBar-fields">
-              <input onChange={this.handleTermChange} placeholder="Search Businesses" />
-              <input onChange={this.handleLocationChange} placeholder="Where?" />
+              <input onChange={this.handleTermChange} placeholder="Search Businesses" onKeyDown={this.handleKeyDown}/>
+              <input onChange={this.handleLocationChange} placeholder="Where?" onKeyDown={this.handleKeyDown}/>
             </div>
             <div className="SearchBar-submit">
-              <a onClick={this.handleSearch}>Let's Go</a>
+              <a onClick={this.handleClick}>Let's Go</a>
             </div>
           </div>
         )

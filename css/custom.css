@@ -434,10 +434,6 @@ section > footer {
 
     /* Projects and About Me*/
     
-    /* add parallax effect*/
-    .ravenous, .jammming, .project3, main > article {
-        background-attachment: fixed;
-    }
     .ravenous {
         background-image: url("../projects/ravenous/src/components/SearchBar/background_search_desktop.jpg"); 
     }

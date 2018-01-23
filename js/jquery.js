@@ -38,7 +38,7 @@ $(document).ready(
 
 			$('html, body').stop().animate({
 				'scrollTop': $(target).offset().top
-			}, 500, 'swing', function () {
+			}, 600, 'swing', function () {
 				window.location.hash = target;
 			});
 		});

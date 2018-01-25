@@ -213,6 +213,7 @@ nav > a {
     display: flex;
     flex-flow: column;
     flex: 1;
+    padding: 1rem;
     justify-content: center;
     align-items: center; 
 }
@@ -373,6 +374,19 @@ section > footer {
     margin-bottom: 0;
 }
 
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    #portrait {
+        display: none;
+}
+    ul {
+        margin: 0;
+    }
+
+    #navExitButton {
+        align-self: flex-end;
+    }
+
+}
 /* media query for desktop 
 # starting at 900px
 */
@@ -439,9 +453,9 @@ section > footer {
     }
 
    #portrait {
-        max-width: 25rem;
-    }
+        max-width: 10rem;
 
+   }  
     #aboutMe > article h1 {
         margin: 1rem 0;
     }
@@ -480,6 +494,5 @@ section > footer {
         opacity: 1;
     }
 }
-
 
 

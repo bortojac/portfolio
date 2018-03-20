@@ -260,7 +260,7 @@ nav > a {
     height: 100vh;
 }
 
-.ravenous, .jammming, .project3, main > article {
+.ravenous, .jammming, .costManager, main > article {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -273,23 +273,24 @@ nav > a {
     margin: 6rem 0 3rem 0;
     background-color:rgb(1, 1, 54);
     background-blend-mode: screen;
-    background-image: url("../projects/ravenous/src/components/SearchBar/background_search_mobile.jpg"); 
+    background-image: url("../img/ravenousBackgroundMobile.jpg"); 
 }
 
 .jammming {
     display: flex;
     flex-flow: column;
     margin: 6rem 0 3rem 0;
-    background-image: url("../projects/jammming/src/components/App/background_photo_desktop.jpg"); 
+    background-image: url("../img/jammmingBackgroundPhoto.jpg"); 
     
 }
 
-.project3 {
+.costManager {
     display: flex;
     flex-flow: column;
     margin: 6rem 0 3rem 0;
-    background: rgb(1, 1, 54);
-    
+    background-color: rgba(1, 1, 54,.7);
+    background-blend-mode: darken;
+    background-image: url("../img/costManagerDashScreenshot.png"); 
 }
 
 
@@ -449,7 +450,7 @@ section > footer {
     /* Projects and About Me*/
     
     .ravenous {
-        background-image: url("../projects/ravenous/src/components/SearchBar/background_search_desktop.jpg"); 
+        background-image: url("../img/ravenousBackgroundDesktop.jpg"); 
     }
 
    #portrait {

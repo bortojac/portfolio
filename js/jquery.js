@@ -33,9 +33,9 @@ $(document).ready(
 		// animate the scroll on click to links with #	
 		$('a[href^="#"]').on('click', function (e) {
 			e.preventDefault();
-			/*this.hash reads the href attribute of this, and gets the part of the URL beginning with # */
-			var target = this.hash;
 
+			//this.hash reads the href attribute of this, and gets the part of the URL beginning with #
+			var target = this.hash;
 			$('html, body').stop().animate({
 				'scrollTop': $(target).offset().top
 			}, 600, 'swing', function () {
@@ -44,16 +44,12 @@ $(document).ready(
 		});
 
 		// scale the homepage button on click
-
 		$('#menuButton').click(function() {
-			//console.log($('#menuButton').css('transform'));
 				$('nav').fadeIn(700).css('display', 'flex');				
 				$('.menu').addClass('scaled');
-				//$('.menuContainer').css('justify-content', 'center');
 				$('.menu > h3').hide();
 				$('#navSocial').fadeIn(800).css('display', 'flex');
 				var navSocialHeight = $('#navSocial').height();
-				console.log(navSocialHeight);
 				$('#navExitButton').fadeIn(700).css(
 					{
 					'display': 'flex'
@@ -72,11 +68,9 @@ $(document).ready(
 
 
 		// project dropdown for nav menu
-		
 		$('#projectLink').click(function() {	
 
 			if ($('.projectDropDown > a:first-child()').hasClass('active')) {
-				//$('a[href^="#aboutMe"]').fadeIn(700, 'swing');
 				$('.projectDropDown > a').removeClass('active'); // this will have implicit loop
 				$('.projectDropDown').delay(700).animate({
 					height: '0'},
@@ -93,7 +87,6 @@ $(document).ready(
 					function() {
 						$('.projectDropDown > a').delay(700).addClass('active'); // this will have implicit loop
 					});										
-				//$('a[href^="#aboutMe"]').fadeOut(700, 'swing');
 			}
 		})
 

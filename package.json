@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This is a portfolio of my projects",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bortojac/portfolio.git"
+  },
+  "author": "jack borto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bortojac/portfolio/issues"
+  },
+  "homepage": "https://github.com/bortojac/portfolio#readme",
+  "dependencies": {
+    "next": "^5.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}

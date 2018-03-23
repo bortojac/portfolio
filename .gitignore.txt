@@ -1,2 +1,2 @@
 # this is where you put rules to ignore certain files
-
+node_modules/

@@ -1,0 +1,136 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'next/router' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.5
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData next/router
+8 silly fetchOtherPackageData next/router
+9 silly cache add args [ 'next/router', null ]
+10 verbose cache add spec next/router
+11 silly cache add parsed spec Result {
+11 silly cache add   raw: 'next/router',
+11 silly cache add   scope: null,
+11 silly cache add   escapedName: null,
+11 silly cache add   name: null,
+11 silly cache add   rawSpec: 'next/router',
+11 silly cache add   spec: 'github:next/router',
+11 silly cache add   type: 'hosted',
+11 silly cache add   hosted:
+11 silly cache add    { type: 'github',
+11 silly cache add      ssh: 'git@github.com:next/router.git',
+11 silly cache add      sshUrl: 'git+ssh://git@github.com/next/router.git',
+11 silly cache add      httpsUrl: 'git+https://github.com/next/router.git',
+11 silly cache add      gitUrl: 'git://github.com/next/router.git',
+11 silly cache add      shortcut: 'github:next/router',
+11 silly cache add      directUrl: 'https://raw.githubusercontent.com/next/router/master/package.json' } }
+12 verbose addRemoteGit caching next/router
+13 verbose addRemoteGit next/router is a repository hosted by github
+14 silly tryGitProto attempting to clone git://github.com/next/router.git
+15 silly tryClone cloning next/router via git://github.com/next/router.git
+16 verbose tryClone git-github-com-next-router-git-1ee4f5b5 not in flight; caching
+17 verbose correctMkdir /Users/bortojac/.npm/_git-remotes correctMkdir not in flight; initializing
+18 verbose makeDirectory /Users/bortojac/.npm/_git-remotes creation not in flight; initializing
+19 silly makeDirectory /Users/bortojac/.npm/_git-remotes uid: 501 gid: 20
+20 info git [ 'clone',
+20 info git   '--template=/Users/bortojac/.npm/_git-remotes/_templates',
+20 info git   '--mirror',
+20 info git   'git://github.com/next/router.git',
+20 info git   '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-1ee4f5b5' ]
+21 verbose git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git://github.com/next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-1ee4f5b5: Cloning into bare repository '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-1ee4f5b5'...
+21 verbose git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git://github.com/next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-1ee4f5b5: fatal: remote error:
+21 verbose git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git://github.com/next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-1ee4f5b5:   Repository not found.
+22 silly tryHTTPS attempting to clone git+https://github.com/next/router.git
+23 silly tryClone cloning next/router via git+https://github.com/next/router.git
+24 verbose tryClone git-https-github-com-next-router-git-4b19c6b5 not in flight; caching
+25 verbose correctMkdir /Users/bortojac/.npm/_git-remotes correctMkdir not in flight; initializing
+26 info git [ 'clone',
+26 info git   '--template=/Users/bortojac/.npm/_git-remotes/_templates',
+26 info git   '--mirror',
+26 info git   'https://github.com/next/router.git',
+26 info git   '/Users/bortojac/.npm/_git-remotes/git-https-github-com-next-router-git-4b19c6b5' ]
+27 verbose git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror https://github.com/next/router.git /Users/bortojac/.npm/_git-remotes/git-https-github-com-next-router-git-4b19c6b5: Cloning into bare repository '/Users/bortojac/.npm/_git-remotes/git-https-github-com-next-router-git-4b19c6b5'...
+27 verbose git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror https://github.com/next/router.git /Users/bortojac/.npm/_git-remotes/git-https-github-com-next-router-git-4b19c6b5: remote: Repository not found.
+27 verbose git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror https://github.com/next/router.git /Users/bortojac/.npm/_git-remotes/git-https-github-com-next-router-git-4b19c6b5: fatal: repository 'https://github.com/next/router.git/' not found
+28 silly trySSH attempting to clone git@github.com:next/router.git
+29 silly tryClone cloning next/router via git@github.com:next/router.git
+30 verbose tryClone git-github-com-next-router-git-34f22fc2 not in flight; caching
+31 verbose correctMkdir /Users/bortojac/.npm/_git-remotes correctMkdir not in flight; initializing
+32 info git [ 'clone',
+32 info git   '--template=/Users/bortojac/.npm/_git-remotes/_templates',
+32 info git   '--mirror',
+32 info git   'git@github.com:next/router.git',
+32 info git   '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2' ]
+33 error git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2: Cloning into bare repository '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2'...
+33 error git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2: Host key verification failed.
+33 error git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2: fatal: Could not read from remote repository.
+33 error git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2:
+33 error git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2: Please make sure you have the correct access rights
+33 error git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2: and the repository exists.
+34 silly fetchPackageMetaData Error: Command failed: git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2
+34 silly fetchPackageMetaData Cloning into bare repository '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2'...
+34 silly fetchPackageMetaData Host key verification failed.
+34 silly fetchPackageMetaData fatal: Could not read from remote repository.
+34 silly fetchPackageMetaData
+34 silly fetchPackageMetaData Please make sure you have the correct access rights
+34 silly fetchPackageMetaData and the repository exists.
+34 silly fetchPackageMetaData
+34 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:198:12)
+34 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+34 silly fetchPackageMetaData     at ChildProcess.emit (events.js:191:7)
+34 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:920:16)
+34 silly fetchPackageMetaData     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
+34 silly fetchPackageMetaData  error for next/router { Error: Command failed: git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2
+34 silly fetchPackageMetaData Cloning into bare repository '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2'...
+34 silly fetchPackageMetaData Host key verification failed.
+34 silly fetchPackageMetaData fatal: Could not read from remote repository.
+34 silly fetchPackageMetaData
+34 silly fetchPackageMetaData Please make sure you have the correct access rights
+34 silly fetchPackageMetaData and the repository exists.
+34 silly fetchPackageMetaData
+34 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:198:12)
+34 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+34 silly fetchPackageMetaData     at ChildProcess.emit (events.js:191:7)
+34 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:920:16)
+34 silly fetchPackageMetaData     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
+34 silly fetchPackageMetaData   killed: false,
+34 silly fetchPackageMetaData   code: 128,
+34 silly fetchPackageMetaData   signal: null,
+34 silly fetchPackageMetaData   cmd: 'git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2' }
+35 silly rollbackFailedOptional Starting
+36 silly rollbackFailedOptional Finishing
+37 silly runTopLevelLifecycles Finishing
+38 silly install printInstalled
+39 verbose stack Error: Command failed: git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2
+39 verbose stack Cloning into bare repository '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2'...
+39 verbose stack Host key verification failed.
+39 verbose stack fatal: Could not read from remote repository.
+39 verbose stack
+39 verbose stack Please make sure you have the correct access rights
+39 verbose stack and the repository exists.
+39 verbose stack
+39 verbose stack     at ChildProcess.exithandler (child_process.js:198:12)
+39 verbose stack     at emitTwo (events.js:106:13)
+39 verbose stack     at ChildProcess.emit (events.js:191:7)
+39 verbose stack     at maybeClose (internal/child_process.js:920:16)
+39 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
+40 verbose cwd /Users/bortojac/Documents/Repository/portfolio
+41 error Darwin 17.3.0
+42 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "next/router"
+43 error node v6.11.5
+44 error npm  v3.10.10
+45 error code 128
+46 error Command failed: git clone --template=/Users/bortojac/.npm/_git-remotes/_templates --mirror git@github.com:next/router.git /Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2
+46 error Cloning into bare repository '/Users/bortojac/.npm/_git-remotes/git-github-com-next-router-git-34f22fc2'...
+46 error Host key verification failed.
+46 error fatal: Could not read from remote repository.
+46 error
+46 error Please make sure you have the correct access rights
+46 error and the repository exists.
+47 error If you need help, you may report this error at:
+47 error     <https://github.com/npm/npm/issues>
+48 verbose exit [ 1, true ]

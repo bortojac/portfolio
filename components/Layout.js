@@ -2,11 +2,12 @@ import React from 'react';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import Head from 'next/head';
+import { withRouter } from 'next/router';
 
 class Layout extends React.PureComponent {
     render() {
         return (
-            <div className="container">
+            <div id="container" className="container">
                 <Head>
                     <meta charSet="utf-8" />
                     <title>Portfolio</title>
@@ -36,11 +37,13 @@ class Layout extends React.PureComponent {
                 height: 100%;
             }
             .container {
-                height: 100%;
+                min-height: 100%;
                 display: flex;
                 flex-flow: column;
                 background-color: rgba(1, 1, 40, .7);
-                background-image: url("../img/manhattan.jpg");
+                background-size: cover;
+                background-blend-mode: darken;
+                background-image: url("../static/manhattan.jpg");
             }
             .content {
                 display: flex;
@@ -55,4 +58,4 @@ class Layout extends React.PureComponent {
     }
 }
 
-export default Layout;
+export default withRouter(Layout);

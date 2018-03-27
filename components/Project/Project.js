@@ -3,54 +3,68 @@ import { withRouter } from 'next/router';
 import ProjectModal from './ProjectModal/ProjectModal';
 
 class Project extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
-      }
-    
-      // handling escape close
-      componentDidMount () {
-        document.addEventListener('keydown', this.handleKeyDown)
-      }
-    
-      componentWillUnmount () {
-        document.removeEventListener('keydown', this.handleKeyDown)
-      }
-    
-      handleKeyDown(e) {
+    }
+
+    // handling escape close
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown);
+    }
+
+    handleKeyDown(e) {
         if (!this.props.router.query.projectId) return
         if (e.keyCode === 27) {
-          this.props.router.push('/projects');
+            this.props.router.push('/projects');
         }
-      }
-    
-      handleCloseModal() {
-        this.props.router.push('/projects')
-      }
-    
-      handleOpenModal (e, id) {
+    }
+
+    handleCloseModal() {
+        this.props.router.push('/projects');
+
+        //remove the modal open class from the body. we will use this class to lock scroll of body when the modal is open
+        document.body.classList.remove('modalOpen');
+        //document.getElementById('__next').classList.remove('modal-open');
+        //document.getElementsByClassName('.container').classList.remove('modal-open');
+        //document.getElementsByName('main').classList.remove('modal-open');
+    }
+
+    handleOpenModal(e, id) {
         e.preventDefault();
-        console.log(e);
-        this.props.router.push({pathname:'/projects', query: {projectId: id}});
-      }
-      
+        //console.log(e);
+        this.props.router.push({ pathname: '/projects', query: { projectId: id } });
+
+        //remove the modal open class from the body. we will use this class to lock scroll of body when the modal is open
+        document.body.classList.add('modalOpen');
+        // document.getElementById('__next').classList.add('modal-open');
+        // document.getElementsByClassName('.container').classList.add('modal-open');
+        // document.getElementsByName('main').classList.add('modal-open');
+    }
+
     render() {
         const { router, projectTitle } = this.props;
         const formattedProjectTitle = this.props.projectTitle.toLowerCase().replace(/ +/g, "");
         return (
             <div className="projectContainer">
-            {router.query.projectId == formattedProjectTitle &&
-             <ProjectModal
-            id={formattedProjectTitle}
-             openModal={this.handleOpenModal}
-              closeModal={this.handleCloseModal}
-               headerContent={projectTitle}
-               mainContent={this.props.modalMainContent}
-               librariesUsed={this.props.librariesUsed}
-            />}
+                {router.query.projectId == formattedProjectTitle &&
+                    <ProjectModal
+                        id={formattedProjectTitle}
+                        openModal={this.handleOpenModal}
+                        closeModal={this.handleCloseModal}
+                        headerContent={projectTitle}
+                        mainContent={this.props.modalMainContent}
+                        librariesUsed={this.props.librariesUsed}
+                        gitHubLink={this.props.gitHubLink}
+                        projectURL={this.props.projectURL}
+                    />}
                 <div className="screenshotContainer">
                     <figure>
                         <img src={this.props.imgSrc} alt={this.props.imgAlt}></img>
@@ -60,12 +74,15 @@ class Project extends React.Component {
                     <h2>{projectTitle}</h2>
                     <p>{this.props.projectDesc}</p>
                     <div className="buttonContainer">
-                        <button 
-                         id={formattedProjectTitle}
-                         onClick={(event, id) => this.handleOpenModal(event, formattedProjectTitle)}
-                         onKeyDown={this.handleKeyDown}
-                         className="projectButton">About</button>
-                        <button className="projectButton">Launch</button>
+                        <a
+                            id={formattedProjectTitle}
+                            onClick={(event, id) => this.handleOpenModal(event, formattedProjectTitle)}
+                            onKeyDown={this.handleKeyDown}
+                            className="projectButton">About</a>
+                        <a
+                            href={this.props.projectURL}
+                            target="_blank"
+                            className="projectButton">Launch</a>
                     </div>
                 </div>
                 <style jsx>
@@ -75,6 +92,7 @@ class Project extends React.Component {
                          margin: 1rem;
                          height: 50rem;
                          background-color: #fff;
+                         color: rgb(1,1,40);
                          border-radius: .5rem;
                     }
                     .screenshotContainer {
@@ -122,6 +140,7 @@ class Project extends React.Component {
                         margin-left: auto;
                         margin-right: 1rem;
                         margin-bottom: .5rem;
+                        text-decoration: none;
                     }
 
                     .projectButton:first-child {
@@ -133,25 +152,22 @@ class Project extends React.Component {
 
                     .projectButton {
                         width: 7rem;
-                        height: 2.5rem;
+                        line-height: 2.5rem;
                         border-radius: 1rem;
                         color: #fff;
+                        text-align: center;
                         background-color: rgb(1, 1, 40);
                         opacity: 1;
                         transition: opacity;
                     }
                     
-                    
-                    @media screen and (min-width:900px) {
-                        .projectButton:hover {
-                            opacity: .7;
-                            cursor: pointer;
-                        }
+                    .projectButton:hover {
+                        cursor: pointer;
                     }
                     `}
                 </style>
             </div>
-        )
+        );
     }
 }
 

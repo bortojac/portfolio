@@ -6,7 +6,7 @@ export default () => (
         <section className="mainHeading">
             <h1>Jack Borto</h1>
             <h2>New York, NY</h2>
-            </section>
+        </section>
         <style jsx>
             {`
             .mainHeading {

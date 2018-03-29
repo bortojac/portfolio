@@ -75,6 +75,7 @@ class ProjectModal extends React.Component {
                         justify-content: center;
                         text-align: center;
                         width: 100%;
+                        max-height: 75%;
                         z-index: 20;
                         overflow: hidden;
                     }
@@ -83,7 +84,6 @@ class ProjectModal extends React.Component {
                         display: flex;
                         flex-flow: column;
                         width: 100%;
-                        height: 45rem;
                         overflow-y: scroll;
                         overflow-x: hidden;
                         flex: 1;
@@ -148,25 +148,22 @@ class ProjectModal extends React.Component {
                         text-decoration: none;
                     }
 
-                    @media screen and (max-height: 600px) and (orientation: landscape) {
+                    @media screen and (max-height: 700px) and (orientation: landscape) {
                         .modalDialog {
                             width: 75%;
+                            max-height: 80%;
                         }
-                        
-                        .infoModalContainer {
-                            height: 30rem;
-                        }
-
                     }
 
                     @media screen and (min-width: 900px) {
 
-                        .infoModalContainer {
-                            height: 55rem;
+                        .modalDialog {
+                            max-height: 85%;
+                            width: 75%;
                         }
 
                         .infoModalHeader {
-                        font-size: 3rem;
+                            font-size: 3rem;
                         }
                     
                         .infoModalContent {
@@ -179,9 +176,6 @@ class ProjectModal extends React.Component {
                         
                         .linkContainer > a:hover {
                             cursor: pointer;
-                        }
-                        .modalDialog {
-                            width: 75%;
                         }
                     }
                 `}

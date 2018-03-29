@@ -90,7 +90,7 @@ class Project extends React.Component {
                      .projectContainer {
                          width: 35rem;
                          margin: 1rem;
-                         height: 50rem;
+                         height: 53rem;
                          background-color: #fff;
                          color: rgb(1,1,40);
                          border-radius: .5rem;
@@ -114,19 +114,22 @@ class Project extends React.Component {
                     }
 
                     .projectFooter {
-                        height: 15rem;
+                        height: 18rem;
                         display: flex;
                         flex-flow: column;
                     }
 
                     .projectFooter > h2 {
-                        margin: .1rem;
+                        margin-top: 1rem;
+                        margin-bottom: .1rem;
                         text-align: center;
                     }
 
                     .projectFooter > p {
-                        height: 6rem;
+                        height: 9rem;
                         padding-right: .5rem;
+                        margin-top: .9rem;
+                        margin-bottom: .9rem;
                         padding-left: .5rem;
                     }
 

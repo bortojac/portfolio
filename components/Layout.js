@@ -12,7 +12,8 @@ class Layout extends React.PureComponent {
                     <title>Jack Borto</title>
                     <meta content="description" name="Jack Borto Portfolio Site" />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <link href="https://fonts.googleapis.com/css?family=Lato|Slabo+27px" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+                    <link href="../static/favicon.ico" rel="shortcut icon" />
                 </Head>
                 <Header />
                 <main className="content">
@@ -24,6 +25,7 @@ class Layout extends React.PureComponent {
                     html {
                         height: 100%;
                         font-size: 60%;
+                        font-family: 'Roboto', sans-serif;
                     }
                     body {
                         height: 100%;

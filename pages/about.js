@@ -1,4 +1,5 @@
 import Layout from '../components/Layout';
+import Link from 'next/link';
 
 export default () => (
     <Layout>
@@ -6,7 +7,7 @@ export default () => (
             <img className="portrait" src="../static/portrait.jpg" alt="Headshot"></img>
             <div className="aboutMeContent">
                 <h1>About Me</h1>
-                <p>I am currently a New York based Data Analyst with 1.5 years of web developement experience. Throughout work experience and self-study, I have developed skills in React.js, Redux.js, Express.js, MongoDB, Webpack, HTML, CSS, Javascript, jQuery, R, Python, and Reactive Programming. In addition to the side projects on the previous tab, professional projects I have worked on include:</p>
+                <p>I am currently a New York based Data Analyst with 1.5 years of web developement experience. Throughout work experience and self-study, I have developed skills in React.js, Redux.js, Express.js, MongoDB, Webpack, HTML, CSS, Javascript, jQuery, R, Python, and Reactive Programming. In addition to <Link href="projects"><a className="projectLink">my current side projects</a></Link>, professional projects I have worked on include:</p>
                 <ul>
                     <li>Predictive Modeling Claims Application with SQLite persistent storage and What-If analysis.</li>
                     <li>Workers' Compensation Claims Monitoring Application</li>
@@ -45,6 +46,11 @@ export default () => (
 
                     .aboutMeContent li {
                         margin: 1rem;
+                    }
+
+                    .projectLink {
+                        text-decoration_line: underline;
+                        color: #fff;
                     }
 
                     @media screen and (min-width: 900px) {

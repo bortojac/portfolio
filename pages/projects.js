@@ -4,18 +4,18 @@ import Project from '../components/Project/Project';
 export default () => (
     <Layout>
         <section className="projectsWrapper">
-        <Project
+            <Project
                 imgSrc="../static/naHands.gif"
                 imgAlt="North American Dactylonomy Gif"
                 projectTitle="Dactylonomy"
-                projectDesc="Dactylonomy describes the way that one uses their fingers to express numbers. This project is an interesting look at understanding how this is different among people from different countries and cultures around the world."
+                projectDesc="Dactylonomy describes the way that one uses their fingers to express numbers. This project is an interesting look at how this is different among people from different countries and cultures around the world."
                 modalMainContent="Dactylonomy is a server-side rendered website that allows users to gain a visual understanding of Dactlynomony using gifs and animation. It also allows the user to select their own Dactylonomy, or describe one entirely unique to them. I am currently a contributor to this repository alongside another developer and a designer. Although this project is still under development, feel free to check out the repository by clicking one of the links below."
                 librariesUsed={['React', 'Next', 'PostCSS', 'Firebase']}
                 gitHubLink="https://github.com/hessnd/dactylonomy"
                 projectURL="https://github.com/hessnd/dactylonomy"
             />
             <Project
-                imgSrc="../static/costManagerDashScreenshot.png"
+                imgSrc="../static/costManager.png"
                 imgAlt="costManager Dashboard Picture"
                 projectTitle="Cost Manager"
                 projectDesc="Cost Manager is built using the MERN stack and allows users to track their monthly expenses. Users can choose when their monthly budget period begins, as well as customize their spending categories."

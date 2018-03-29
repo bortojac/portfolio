@@ -2,7 +2,7 @@ module.exports =
 
         __NEXT_REGISTER_PAGE('/', function() {
           var comp = 
-      webpackJsonp([4],{
+      webpackJsonp([5],{
 
 /***/ "./components/Footer/Footer.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -16130,7 +16130,7 @@ var _default = function _default() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/index.js");
@@ -16138,7 +16138,7 @@ module.exports = __webpack_require__("./pages/index.js");
 
 /***/ })
 
-},[2])
+},[3])
           return { page: comp.default }
         })
       ;

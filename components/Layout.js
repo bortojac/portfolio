@@ -36,6 +36,7 @@ class Layout extends React.PureComponent {
                     }
                     body.modalOpen {
                         overflow: hidden;
+                        position: absolute;
                     }
                     #__next {
                         height: 100%;

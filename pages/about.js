@@ -40,6 +40,7 @@ export default () => (
 
                     .aboutMeContent > h1 {
                         text-align: center;
+                        font-size: 3rem;
                         margin-top: 2rem;
                         margin-bottom: .5rem;
                     }

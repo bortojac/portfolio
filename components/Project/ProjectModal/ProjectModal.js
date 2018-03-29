@@ -116,7 +116,7 @@ class ProjectModal extends React.Component {
                     .infoModalContent > h2 {
                         text-align: left;
                         margin: 1rem;
-                        font-size: 1.5rem;
+                        font-size: 2rem;
                     }
                     
                     .librariesList {
@@ -167,11 +167,11 @@ class ProjectModal extends React.Component {
                         }
                     
                         .infoModalContent {
-                            font-size: 2rem;
+                            font-size: 1.8rem;
                         }
 
                         .infoModalContent > h2 {
-                            font-size: 2rem;
+                            font-size: 2.3rem;
                         }
                         
                         .linkContainer > a:hover {
